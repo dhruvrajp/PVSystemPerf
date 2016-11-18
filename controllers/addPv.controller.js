@@ -13,13 +13,12 @@ exports.renderForm = function(req,res){
     res.render('addPvForm');
 };
 
+exports.renderFile = function(req,res){
+    res.render('addPvFile');
+};
 
-exports.insertData = function(req,res){
+
+exports.processForm = function(req,res){
     console.log("Inside Post");
-    var  email = req.body.email,
-        password = req.body.password,
-        firstname = req.body.firstname,
-        lastname = req.body.lastname,
-        role_id = req.body.role_id
-
+    res.render('addPv');
 };

@@ -3,10 +3,11 @@
  */
 var express = require('express');
 var router = express.Router();
-var controller=require("../controllers/addPv.controller.js");
+var addPvcontroller=require("../controllers/addPv.controller.js");
 
-router.all('/', controller.renderForm);
+module.exports = function(app){
 
-
-
-module.exports = router;
+    app.get('/addPvForm',addPvcontroller.renderForm);
+    app.get('/addPvFile',addPvcontroller.renderFile);
+    app.post('/processPvForm',addPvcontroller.processForm)
+};

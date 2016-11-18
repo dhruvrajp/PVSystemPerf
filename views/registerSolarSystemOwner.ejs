@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Solar System Owner</title>
+<meta name="generator" content="WYSIWYG Web Builder 11 Trial Version - http://www.wysiwygwebbuilder.com">
+<script src="/javascripts/jscookmenu.min.js"></script>
+<link href="/stylesheets/#IFT540-TP-UI.css" rel="stylesheet">
+<link href="/stylesheets/Login-SolarSystemOwner.css" rel="stylesheet">
+<script src="/javascripts/jquery-1.12.4.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   $(".SlideMenu1_Folder a").click(function()
+   {
+      if ($(this).parent().find('ul').is(':hidden'))
+      {
+         $(this).parent().find('ul').show();
+      }
+      else
+      {
+         $(this).parent().find('ul').hide();
+      }
+   });
+});
+</script>
+</head>
+<body>
+<a href="http://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb11.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:967px;border-width:0;z-index:250"></a>
+<div id="wb_CssMenu2" style="position:absolute;left:371px;top:93px;width:1072px;height:35px;text-align:right;z-index:1;">
+<ul>
+<li class="firstmain"><a href="#" target="_self">Home</a>
+</li>
+<li><a href="#" target="_self">PV&nbsp;Rating</a>
+</li>
+<li><a href="#" target="_self">PV&nbsp;System&nbsp;Performance</a>
+</li>
+<li><a href="#" target="_self">CHICO</a>
+</li>
+</ul>
+</div>
+<div id="SlideMenu1" style="position:absolute;left:32px;top:172px;width:307px;height:650px;z-index:2;">
+<ul>
+   <li><a>ADD PV SYSTEM</a>
+      <ul>
+         <li><a href="">Form Fill</a></li>
+         <li><a href="">Import from XML</a></li>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>TEST DATA REPORTING</a>
+      <ul>
+         <li><a href="">Form Fill</a></li>
+         <li><a href="">Import from XML</a></li>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>PERFORMANCE ANALYSIS</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>COMPARE PV SYSTEMS PERFORMANCE</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>CERTIFICATION APPLICATION</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>REIB APPLICATION</a>
+      <ul>
+      </ul>
+   </li>
+   <li class="SlideMenu1_Folder"><a>RECB APPLICATION</a>
+      <ul>
+      </ul>
+   </li>
+</ul>
+</div>
+<div id="wb_Image1" style="position:absolute;left:62px;top:36px;width:129px;height:117px;z-index:3;">
+<img src="images/New_Icon.png" id="Image1" alt="Sundevils Logo"></div>
+<div id="wb_Line1" style="position:absolute;left:-4px;top:168px;width:1457px;height:3px;z-index:4;">
+<img src="images/img0006.png" id="Line1" alt=""></div>
+<div id="wb_MenuBar1" style="position:absolute;left:87px;top:178px;width:252px;height:35px;z-index:1005;">
+<div id="MenuBar1">
+<ul style="display:none;">
+<li><span></span><span>Register</span></li>
+<li><span></span><span>Login</span></li>
+</ul>
+</div>
+<script>
+var cmMenuBar1 =
+{
+   mainFolderLeft: '',
+   mainFolderRight: '',
+   mainItemLeft: '',
+   mainItemRight: '',
+   folderLeft: '',
+   folderRight: '',
+   itemLeft: '',
+   itemRight: '',
+   mainSpacing: 0,
+   subSpacing: 0,
+   delay: 100,
+   offsetHMainAdjust: [0, 0],
+   offsetSubAdjust: [0, 0]
+};
+var cmMenuBar1HSplit = [_cmNoClick, '<td class="MenuBar1MenuSplitLeft"><div></div></td>' +
+                                       '<td class="MenuBar1MenuSplitText"><div></div></td>' +
+                                       '<td class="MenuBar1MenuSplitRight"><div></div></td>'];
+var cmMenuBar1MainVSplit = [_cmNoClick, '<div><table width="15" cellspacing="0"><tr><td class="MenuBar1HorizontalSplit">|</td></tr></table></div>'];
+var cmMenuBar1MainHSplit = [_cmNoClick, '<td colspan="3" class="MenuBar1MainSplitText"><div></div></td>'];
+cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
+</script>
+</div>
+<form name="RegisterSolarSystemOwner" method="post" action="/addSolSysOwner" enctype="application/x-www-form-urlencoded" id="Form2">
+<label for="" id="Label2" style="position:absolute;left:396px;top:143px;width:399px;height:97px;line-height:97px;z-index:6;">Solar System Owner Registration Page</label>
+<label for="" id="Label1" style="position:absolute;left:396px;top:213px;width:326px;height:45px;line-height:45px;z-index:7;">All Fields are mandatory</label>
+<label for="" id="Label3" style="position:absolute;left:395px;top:243px;width:319px;height:44px;line-height:44px;z-index:8;">Company Name</label>
+<input type="text" id="companyName" style="position:absolute;left:400px;top:287px;width:353px;height:18px;line-height:18px;z-index:9;" name="companyName" value="" required>
+<label for="" id="Label4" style="position:absolute;left:398px;top:307px;width:319px;height:44px;line-height:44px;z-index:10;">Owner Name</label>
+<input type="text" id="ownerName" style="position:absolute;left:400px;top:353px;width:353px;height:18px;line-height:18px;z-index:11;" name="ownerName" value="" required>
+<label for="" id="Label5" style="position:absolute;left:400px;top:381px;width:160px;height:28px;line-height:28px;z-index:12;">Address</label>
+<input type="text" id="addressStreet" style="position:absolute;left:402px;top:417px;width:353px;height:18px;line-height:18px;z-index:13;" name="addressStreet" value="" placeholder="Street" required>
+<input type="text" id="addressCity" style="position:absolute;left:402px;top:457px;width:105px;height:18px;line-height:18px;z-index:14;" name="addressCity" value="" placeholder="City" required>
+<input type="number" id="addressZip" style="position:absolute;left:657px;top:457px;width:96px;height:18px;line-height:18px;z-index:15;" name="addressZip" value="" placeholder="ZipCode" required>
+<select name="addressState" size="1" id="addressState" style="position:absolute;left:528px;top:458px;width:119px;height:28px;z-index:16;">
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VA">Virginia</option>
+<option value="WA">Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+</select>
+<label for="" id="Label6" style="position:absolute;left:402px;top:485px;width:207px;height:32px;line-height:32px;z-index:17;">Phone</label>
+<input type="number" id="phone" style="position:absolute;left:401px;top:525px;width:351px;height:18px;line-height:18px;z-index:18;" name="phone" value="" maxlength="10" placeholder="10 Digit Phone number(only Digits) and no spaces" required>
+<label for="" id="Label7" style="position:absolute;left:399px;top:545px;width:319px;height:44px;line-height:44px;z-index:19;">Email Address</label>
+<input type="email" id="email" style="position:absolute;left:400px;top:589px;width:353px;height:18px;line-height:18px;z-index:20;" name="email" value="" placeholder="example@sundevils.com" required>
+<label for="" id="Label8" style="position:absolute;left:399px;top:612px;width:319px;height:44px;line-height:44px;z-index:21;">Password</label>
+<input type="password" id="password" style="position:absolute;left:403px;top:656px;width:353px;height:18px;line-height:18px;z-index:22;" name="password" value="" placeholder="Must contain an upper case letter and a number" required>
+<label for="" id="Label9" style="position:absolute;left:399px;top:673px;width:319px;height:44px;line-height:44px;z-index:23;">Confirm Password</label>
+<input type="password" id="password" style="position:absolute;left:403px;top:717px;width:353px;height:18px;line-height:18px;z-index:24;" name="rePassowrd" value="" placeholder="Retype your password here" required>
+<input type="submit" id="Button1" name="" value="Submit" style="position:absolute;left:519px;top:758px;width:96px;height:25px;z-index:25;">
+</form>
+<div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:797px;width:100%;height:201px;z-index:26;">
+   <div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;">
+<p>Bankable & InterOperable PV</p>
+<p>701 E Williams Field Rd,
+Mesa,Arizona 85212</p>
+<p><a href="www.asu.edu">ASU Website</a>
+<label align ="right">&copy; All Rights Reserved</label></p>
+<p><a href='#'>Site Map</a> | <a href='#'>Terms and Conditions</a> |<a href='#'>Privacy Policy</a> |<a href='#'>About Us</a></p>
+</div>">
+</div>
+</body>
+</html>

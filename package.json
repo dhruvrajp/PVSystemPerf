@@ -12,6 +12,7 @@
     "ejs": "latest",
     "express": "latest",
     "morgan": "~1.7.0",
+    "bcryptjs": "^2.3.0",
     "serve-favicon": "~2.3.0",
     "sequelize": "latest",
     "mysql":"latest"
