@@ -8,7 +8,7 @@ var main = require('./routes/index');
 var addPv=require('./routes/addPv');
 var addCerti = require('./routes/addCerti');
 var sequelize = require('./node_modules/sequelize');
-
+var solarSystemInfo = require('./routes/solarSystemInfo')
 var app = express();
 
 // view engine setup
@@ -26,9 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', main);
 app.use('/addPv', addPv);
 app.use('/addCerti', addCerti);
+app.use('/solarSysteminfo', solarSystemInfo)
 require(path.join(__dirname+'/routes/addPvForm.js'))(app);
 require(path.join(__dirname+'/routes/loginReg.js'))(app);
 require(path.join(__dirname+'/routes/addCertiForm.js'))(app);
+require(path.join(__dirname+'/routes/solarSystemInfoResults.js'))(app);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

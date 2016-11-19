@@ -1,0 +1,16 @@
+<html>
+solarSystemInfo Results here:
+<%
+//JSON.stringify(vals)
+// @Nupur: create a Nice Table here instead
+// refer to solarSystemInfo.ejs
+%>
+<ul>
+    <% for(var key in vals[0]) { %>
+    <li>
+        <%= key  %> : <%= vals[0][key] %>
+        </a>
+    </li>
+    <% } %>
+</ul>
+</html>
