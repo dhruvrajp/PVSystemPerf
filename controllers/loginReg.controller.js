@@ -14,8 +14,50 @@ exports.renderRegSolSysOwner = function(req, res) {
     res.render('registerSolarSystemOwner');
 };
 
+exports.loginUser = function(req, res) {
+var email = req.body.username;
+var pass = req.body.password;
+//console.log("Inside Login User Emaol= "+ String(email) +"" + String(pass));
+
+        var query = "SELECT Email, password FROM solarsystemowners WHERE Email= :email";
+sequelize.query(query, {replacements: {email : email} ,type : sequelize.QueryTypes.SELECT}
+).then(function(val){
+
+        bcrypt.compare(pass , val[0]['password'], function (err, result) {
+            console.log(result);
+
+            if (result) {
+               // console.log("error is" + err);
+
+                return res.redirect("/addPv");
+            }
+            else {
+                res.render('LoginError');
+            }
+        });
+
+    /*
+        console.log(val[0]);
+    console.log(val[0]['password']);
+    console.log("User Entered "+ String(pass));
+    if (val[0]['password'] == pass)
+    {
+        return res.redirect("/addPv");
+    }
+    else
+    {
+        //Error Page, Login Again
+        res.render('LoginError');
+    }
+    */
+});
+
+
+    };
+
 exports.addSolSysOwner = function(req,res){
-    console.log('inside server controller signup' + JSON.stringify(req.body))
+   // console.log('inside server controller signup' + JSON.stringify(req.body));
+    //console.log("Inside Post" + String(Object.keys(req.body)));
     var companyname=req.body.companyName;
     var ownername=req.body.ownerName;
     var addressstreet=req.body.addressStreet;
@@ -28,23 +70,19 @@ exports.addSolSysOwner = function(req,res){
 
     var address=addressstreet+" "+addresscity+" "+addressstate+" "+zipCode;
 
-    bcrypt.hash(password, 10, function(err,hash) {
+    bcrypt.hash(password, 8, function(err,hash) {
         console.log("hash is " + hash);
-        bcrypt.compare(password, hash, function (err, result) {
-            if (err) {
-                console.log("error is" + err);
-            }
-            console.log("res is " + result);
-        });
         password = hash;
-    })
 
-    var query = "insert into solarsystemowners (email, password,companyname,ownername,address,phone) values (:email, :password, :companyname, :ownername, :address, :phone)";
-    sequelize.query(query,{ replacements: {email: email, password: password, companyname:companyname, ownername:ownername, address:address, phone:phone }})
-        .then(function(success) {
-            console.log("signup successful"+JSON.stringify(success));
-            return res.redirect("/addPv");
-        });
+        var query = "insert into solarsystemowners (email, password,companyname,ownername,address,phone) values (:email, :password, :companyname, :ownername, :address, :phone)";
+        sequelize.query(query,{ replacements: {email: email, password: password, companyname:companyname, ownername:ownername, address:address, phone:phone }})
+            .then(function(success) {
+                console.log("signup successful"+JSON.stringify(success));
+                return res.redirect("/addPv");
+            });
+    });
+
+
 
 };
 

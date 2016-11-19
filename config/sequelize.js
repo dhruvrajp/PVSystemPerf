@@ -3,12 +3,13 @@
  */
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('solarsundevils', 'root', 'admin', {
+/*var sequelize = new Sequelize('solarsundevils', 'root', {
     host: 'localhost',
     dialect: "mysql", // or 'sqlite', 'postgres', 'mariadb'
-    port:    3300, // or 5432 (for postgres)
+    port:    3306, // or 5432 (for postgres) // initial value 3300
     logging: console.log
-});
+});*/
+var sequelize = new Sequelize('mysql://root@localhost:3306/solarsundevils');
 sequelize
     .authenticate()
     .then(function(err) {

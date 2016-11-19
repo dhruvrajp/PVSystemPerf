@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 var main = require('./routes/index');
 var addPv=require('./routes/addPv');
+var addCerti = require('./routes/addCerti');
 var sequelize = require('./node_modules/sequelize');
 
 var app = express();
@@ -24,9 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', main);
 app.use('/addPv', addPv);
+app.use('/addCerti', addCerti);
 require(path.join(__dirname+'/routes/addPvForm.js'))(app);
 require(path.join(__dirname+'/routes/loginReg.js'))(app);
-
+require(path.join(__dirname+'/routes/addCertiForm.js'))(app);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
