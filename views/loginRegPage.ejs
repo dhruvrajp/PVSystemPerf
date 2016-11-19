@@ -8,9 +8,10 @@
 <link href="/stylesheets/#IFT540-TP-UI.css" rel="stylesheet">
 <link href="/stylesheets/Login&Reg-MainPage.css" rel="stylesheet">
 <script src="/javascripts/jquery-1.12.4.min.js"></script>
-<script>
+<script type="text/javascript">
 $(document).ready(function()
 {
+   $(".loginerror").hide();
    $(".SlideMenu1_Folder a").click(function()
    {
       if ($(this).parent().find('ul').is(':hidden'))
@@ -23,6 +24,8 @@ $(document).ready(function()
       }
    });
 });
+
+
 </script>
 </head>
 <body>
@@ -119,10 +122,10 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
    <td class="header">Log In</td>
 </tr>
 <tr>
-   <td class="label"><label for="username">Email</label></td>
+   <td class="label"><label for="email">Email</label></td>
 </tr>
 <tr>
-   <td class="row"><input class="input" name="username" type="text" id="username" value=""></td>
+   <td class="row"><input class="input" name="email" type="text" id="email" value=""></td>
 </tr>
 <tr>
    <td class="label"><label for="password">Password</label></td>

@@ -15,7 +15,7 @@ exports.renderRegSolSysOwner = function(req, res) {
 };
 
 exports.loginUser = function(req, res) {
-var email = req.body.username;
+var email = req.body.email;
 var pass = req.body.password;
 //console.log("Inside Login User Emaol= "+ String(email) +"" + String(pass));
 
@@ -74,15 +74,14 @@ exports.addSolSysOwner = function(req,res){
         console.log("hash is " + hash);
         password = hash;
 
-        var query = "insert into solarsystemowners (email, password,companyname,ownername,address,phone) values (:email, :password, :companyname, :ownername, :address, :phone)";
-        sequelize.query(query,{ replacements: {email: email, password: password, companyname:companyname, ownername:ownername, address:address, phone:phone }})
-            .then(function(success) {
-                console.log("signup successful"+JSON.stringify(success));
-                return res.redirect("/addPv");
-            });
-    });
 
-
+    var query = "insert into solarsystemowners (email, password,companyname,ownername,address,phone) values (:email, :password, :companyname, :ownername, :address, :phone)";
+    sequelize.query(query,{ replacements: {email: email, password: password, companyname:companyname, ownername:ownername, address:address, phone:phone }})
+        .then(function(success) {
+            console.log("signup successful"+JSON.stringify(success));
+            return res.redirect("/loginRegPage");
+        });
+    })
 
 };
 

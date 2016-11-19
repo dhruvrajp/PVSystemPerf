@@ -246,8 +246,8 @@ $(document).ready(function()
 <ul>
    <li><a>ADD PV SYSTEM</a>
       <ul>
-         <li><a href="">Form Fill</a></li>
-         <li><a href="">Import from XML</a></li>
+         <li><a href="/addPvForm">Form Fill</a></li>
+         <li><a href="/addPvFile">Import from XML</a></li>
       </ul>
    </li>
    <li class="SlideMenu1_Folder"><a>TEST DATA REPORTING</a>
@@ -317,26 +317,26 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
 </div>
 <div id="wb_Form2" style="position:absolute;left:347px;top:212px;width:852px;height:573px;z-index:28;">
 <form name="PerformanceData" method="post" action="/processPvForm" enctype="application/x-www-form-urlencoded" id="Form2">
-<label for="Editbox2" id="Label3" style="position:absolute;left:20px;top:18px;width:60px;height:18px;line-height:18px;z-index:0;">Location</label>
-<input type="number" id="Editbox2" style="position:absolute;left:115px;top:17px;width:154px;height:18px;line-height:18px;z-index:1;" name="Location" value="" placeholder="Location">
-<input type="number" id="Editbox3" style="position:absolute;left:115px;top:72px;width:154px;height:18px;line-height:18px;z-index:2;" name="EndYear" value="" title="Site" placeholder="Site">
-<label for="Editbox3" id="Label2" style="position:absolute;left:21px;top:72px;width:60px;height:20px;line-height:20px;z-index:3;">Site</label>
-<input type="text" id="Editbox4" style="position:absolute;left:115px;top:136px;width:154px;height:18px;line-height:18px;z-index:4;" name="Manufacturer" value="" title="Manufacturer" placeholder="Manufacturer">
-<label for="Editbox4" id="Label4" style="position:absolute;left:12px;top:137px;width:78px;height:19px;line-height:19px;z-index:5;" title="MeasuredEnergyAvailability">Manufacturer</label>
-<label for="Editbox5" id="Label8" style="position:absolute;left:28px;top:202px;width:45px;height:18px;line-height:18px;z-index:6;" title="ManufacturerModelDesign">MMD</label>
-<input type="text" id="Editbox5" style="position:absolute;left:116px;top:201px;width:154px;height:18px;line-height:18px;z-index:7;" name="MMD" value="" title="ManufacturerModelDesign" placeholder="ManufacturerModelDesign">
-<input type="text" id="Editbox6" style="position:absolute;left:115px;top:266px;width:154px;height:18px;line-height:18px;z-index:8;" name="Technology" value="" title="Technology" placeholder="Technology">
-<label for="Editbox6" id="Label9" style="position:absolute;left:12px;top:262px;width:85px;height:24px;line-height:24px;z-index:9;" title="Technology">Technology</label>
-<input type="number" id="Editbox7" style="position:absolute;left:117px;top:332px;width:153px;height:18px;line-height:18px;z-index:10;" name="FLT" value="" title="FixedTiltTracking" placeholder="FixedTiltTracking">
-<input type="number" id="Editbox8" style="position:absolute;left:116px;top:404px;width:154px;height:18px;line-height:18px;z-index:11;" name="NOM" value="" title="NumberOfModules" placeholder="NumberOfModules">
-<label for="Editbox8" id="Label13" style="position:absolute;left:5px;top:405px;width:92px;height:19px;line-height:19px;z-index:12;" title="NumberOfModules">NOM</label>
-<input type="number" id="Editbox9" style="position:absolute;left:621px;top:16px;width:154px;height:18px;line-height:18px;z-index:13;" name="ExposedYears" value="" title="ExposedYearsAtTimeOfEvaluation" placeholder="0">
-<label for="" id="Label15" style="position:absolute;left:497px;top:72px;width:90px;height:20px;line-height:20px;z-index:14;" title="EvaluationYear">Evaluation Year</label>
-<input type="number" id="Editbox10" style="position:absolute;left:621px;top:72px;width:154px;height:18px;line-height:18px;z-index:15;" name="EvaluationYear" value="" maxlength="4" title="EvaluationYear" placeholder="yyyy">
-<label for="" id="Label16" style="position:absolute;left:497px;top:16px;width:90px;height:20px;line-height:20px;z-index:16;" title="ExposedYearsAtTimeOfEvaluation">Exposed Years</label>
+<label for="location" id="Label3" style="position:absolute;left:20px;top:18px;width:60px;height:18px;line-height:18px;z-index:0;">Location</label>
+<input type="text" id="location" style="position:absolute;left:115px;top:17px;width:154px;height:18px;line-height:18px;z-index:1;" name="location" value="" placeholder="Location">
+<input type="text" id="site" style="position:absolute;left:115px;top:72px;width:154px;height:18px;line-height:18px;z-index:2;" name="site" value="" title="Site" placeholder="Site">
+<label for="site" id="Label2" style="position:absolute;left:21px;top:72px;width:60px;height:20px;line-height:20px;z-index:3;">Site</label>
+<input type="text" id="manufacturer" style="position:absolute;left:115px;top:136px;width:154px;height:18px;line-height:18px;z-index:4;" name="manufacturer" value="" title="Manufacturer" placeholder="Manufacturer">
+<label for="manufacturer" id="Label4" style="position:absolute;left:12px;top:137px;width:78px;height:19px;line-height:19px;z-index:5;" title="Manufacturer">Manufacturer</label>
+<label for="manufacturermodeldesignation" id="Label8" style="position:absolute;left:28px;top:202px;width:45px;height:18px;line-height:18px;z-index:6;" title="ManufacturerModelDesignation">MMD</label>
+<input type="text" id="manufacturermodeldesignation" style="position:absolute;left:116px;top:201px;width:154px;height:18px;line-height:18px;z-index:7;" name="manufacturermodeldesignation" value="" title="ManufacturerModelDesign" placeholder="ManufacturerModelDesign">
+<input type="text" id="technology" style="position:absolute;left:115px;top:266px;width:154px;height:18px;line-height:18px;z-index:8;" name="technology" value="" title="Technology" placeholder="Technology">
+<label for="technology" id="Label9" style="position:absolute;left:12px;top:262px;width:85px;height:24px;line-height:24px;z-index:9;" title="Technology">Technology</label>
+<input type="number" id="fixedtilttracking" style="position:absolute;left:117px;top:332px;width:153px;height:18px;line-height:18px;z-index:10;" name="fixedtilttracking" value="" title="FixedTiltTracking" placeholder="FixedTiltTracking">
+<input type="number" id="numberofmodules" style="position:absolute;left:116px;top:404px;width:154px;height:18px;line-height:18px;z-index:11;" name="numberofmodules" value="" title="NumberOfModules" placeholder="NumberOfModules">
+<label for="numberofmodules" id="Label13" style="position:absolute;left:5px;top:405px;width:92px;height:19px;line-height:19px;z-index:12;" title="NumberOfModules">NOM</label>
+<input type="number" id="exposedyearsatthetimeofevaluation" style="position:absolute;left:621px;top:16px;width:154px;height:18px;line-height:18px;z-index:13;" name="exposedyearsatthetimeofevaluation" value="" title="ExposedYearsAtTimeOfEvaluation" placeholder="0">
+<label for="evaluationyear" id="Label15" style="position:absolute;left:497px;top:72px;width:90px;height:20px;line-height:20px;z-index:14;" title="EvaluationYear">Evaluation Year</label>
+<input type="number" id="evaluationyear" style="position:absolute;left:621px;top:72px;width:154px;height:18px;line-height:18px;z-index:15;" name="evaluationyear" value="" maxlength="4" title="EvaluationYear" placeholder="yyyy">
+<label for="exposedyearsatthetimeofevaluation" id="Label16" style="position:absolute;left:497px;top:16px;width:90px;height:20px;line-height:20px;z-index:16;" title="ExposedYearsAtTimeOfEvaluation">Exposed Years</label>
 <input type="submit" id="Button1" name="Submit" value="Submit" style="position:absolute;left:689px;top:470px;width:96px;height:25px;z-index:17;">
-<input type="text" id="Editbox11" style="position:absolute;left:115px;top:466px;width:154px;height:18px;line-height:18px;z-index:18;" name="Construction" value="" title="Construction" placeholder="Construction">
-<label for="Editbox7" id="Label10" style="position:absolute;left:8px;top:466px;width:85px;height:21px;line-height:21px;z-index:19;" title="Construction">Construction</label>
+<input type="text" id="construction" style="position:absolute;left:115px;top:466px;width:154px;height:18px;line-height:18px;z-index:18;" name="construction" value="" title="Construction" placeholder="Construction">
+<label for="construction" id="Label10" style="position:absolute;left:8px;top:466px;width:85px;height:21px;line-height:21px;z-index:19;" title="Construction">Construction</label>
 <label for="Editbox7" id="Label5" style="position:absolute;left:9px;top:332px;width:85px;height:21px;line-height:21px;z-index:20;" title="FixedTiltTracking">FLT</label>
 </form>
 </div>

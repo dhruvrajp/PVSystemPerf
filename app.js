@@ -1,13 +1,18 @@
 var express = require('express');
 var path = require('path');
+//var passport=require('passport');
+//var connectflash=require('connect-flash');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//var flash = require('connect-flash')
+//var session= require('express-session');
 
 var main = require('./routes/index');
-var addPv=require('./routes/addPv');
 var addCerti = require('./routes/addCerti');
-var sequelize = require('./node_modules/sequelize');
+//var sequelize = require('./node_modules/sequelize');
+var sequelize = require('./config/sequelize');
+
 
 var app = express();
 
@@ -22,13 +27,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//app.use(session({ secret: 'secretSession' }));
+//app.use(passport.initialize());
+//app.use(passport.session());
+//app.use(flash());
+
 
 app.use('/', main);
-app.use('/addPv', addPv);
 app.use('/addCerti', addCerti);
 require(path.join(__dirname+'/routes/addPvForm.js'))(app);
 require(path.join(__dirname+'/routes/loginReg.js'))(app);
 require(path.join(__dirname+'/routes/addCertiForm.js'))(app);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
