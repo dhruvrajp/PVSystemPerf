@@ -9,5 +9,7 @@ module.exports = function(app){
 
     app.get('/addPvForm',addPvcontroller.renderForm);
     app.get('/addPvFile',addPvcontroller.renderFile);
-    app.post('/processPvForm',addPvcontroller.processForm)
+    app.post('/processPvForm',addPvcontroller.processForm);
+    app.get('/success',addPvcontroller.renderSuccess);
+    app.get('/addPv',addPvcontroller.renderHome);
 };

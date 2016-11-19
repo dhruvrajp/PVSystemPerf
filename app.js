@@ -8,7 +8,7 @@ var main = require('./routes/index');
 var addPv=require('./routes/addPv');
 var addCerti = require('./routes/addCerti');
 var sequelize = require('./node_modules/sequelize');
-var solarSystemInfo = require('./routes/solarSystemInfo')
+
 var app = express();
 
 // view engine setup
