@@ -25,10 +25,10 @@ sequelize.query(query, {replacements: {email : email} ,type : sequelize.QueryTyp
 
         bcrypt.compare(pass , val[0]['password'], function (err, result) {
             console.log(result);
-
             if (result) {
                // console.log("error is" + err);
-
+                sess=req.session;
+                sess.email=email;
                 return res.redirect("/addPv");
             }
             else {
@@ -86,3 +86,12 @@ exports.addSolSysOwner = function(req,res){
 };
 
 
+exports.logout=function(req,res){
+    req.session.destroy(function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          res.redirect('/');
+        }
+    });
+};

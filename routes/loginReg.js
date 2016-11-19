@@ -10,4 +10,5 @@ module.exports = function(app){
     app.get('/loginRegPage',loginRegcontroller.renderMain);
     app.get('/registerSolarSystemOwner',loginRegcontroller.renderRegSolSysOwner);
     app.post('/addSolSysOwner',loginRegcontroller.addSolSysOwner);
+    app.get('/logout',loginRegcontroller.logout);
 };

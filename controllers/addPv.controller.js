@@ -5,25 +5,49 @@ var sequelize=require("../config/sequelize").getSequelize;
 
 'use strict';
 
+var sess;
 exports.renderHome = function(req, res) {
-    res.render('addPv');
+    sess=req.session;
+    if(sess.email) {
+        console.log("This email"+req.session.email);
+        res.render('addPv');
+    }else{
+        res.render('authError');
+    }
 };
 
 exports.renderForm = function(req,res){
-    res.render('addPvForm');
+    sess=req.session;
+    if(sess.email) {
+        res.render('addPvForm');
+    }else{
+        res.render('authError');
+    }
 };
 
 exports.renderFile = function(req,res){
-    res.render('addPvFile');
+    sess=req.session;
+    if(sess.email) {
+         res.render('addPvFile');
+    }else{
+         res.render('authError');
+    }
 };
 
 exports.renderSuccess= function(req,res){
-    res.render('success');
+    sess=req.session;
+    if(sess.email) {
+        res.render('success');
+    }else{
+        res.render('authError');
+    }
 };
 
 
 
 exports.processForm = function(req,res){
+    sess=req.session;
+    if(sess.email) {
     console.log("Inside Post");
     console.log('inside server controller signup' + JSON.stringify(req.body))
     var location=req.body.location;
@@ -43,4 +67,7 @@ exports.processForm = function(req,res){
                 console.log("signup successful"+JSON.stringify(success));
                 return res.redirect("/success");
             });
+    }else{
+        res.render('authError');
+    }
 };

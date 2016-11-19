@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var flash = require('connect-flash')
-//var session= require('express-session');
+var session= require('express-session');
 
 var main = require('./routes/index');
 var addCerti = require('./routes/addCerti');
@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(session({ secret: 'secretSession' }));
+app.use(session({ secret: 'secretSession' }));
 //app.use(passport.initialize());
 //app.use(passport.session());
 //app.use(flash());
