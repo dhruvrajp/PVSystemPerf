@@ -1,0 +1,16 @@
+<html>
+Select the Solar System
+<form method="post" action="/solarSystemInfoResults" enctype="application/x-www-form-urlencoded"">
+<select name="systemcode">
+    <% for(var i=0; i<vals.length; i++) { %>
+    <option value='<%=vals[i]["systemcode"]%>'>
+            <%= vals[i]["systemcode"] %>
+    </option>
+    <% } %>
+</select>
+    <button type="submit">Go</button>
+</form>
+<%
+//JSON.stringify(vals)
+%>
+</html>
