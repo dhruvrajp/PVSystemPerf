@@ -12,4 +12,5 @@ module.exports = function(app){
     app.post('/processPvForm',addPvcontroller.processForm);
     app.get('/success',addPvcontroller.renderSuccess);
     app.get('/addPv',addPvcontroller.renderHome);
+    app.post('/addPv',addPvcontroller.renderHome);
 };
