@@ -22,20 +22,25 @@ var pass = req.body.password;
         var query = "SELECT Email, password FROM solarsystemowners WHERE Email= :email";
 sequelize.query(query, {replacements: {email : email} ,type : sequelize.QueryTypes.SELECT}
 ).then(function(val){
+        if (val.length>0) {
 
-        bcrypt.compare(pass , val[0]['password'], function (err, result) {
-            console.log(result);
-            if (result) {
-               // console.log("error is" + err);
-                sess=req.session;
-                sess.email=email;
-                return res.redirect("/addPv");
-            }
-            else {
-                res.render('LoginError');
-            }
-        });
-
+            bcrypt.compare(pass, val[0]['password'], function (err, result) {
+                console.log(result);
+                if (result) {
+                    // console.log("error is" + err);
+                    sess = req.session;
+                    sess.email = email;
+                    return res.redirect("/addPv");
+                }
+                else {
+                    res.render('LoginError');
+                }
+            });
+        }
+    else
+        {
+            res.render('LoginError');
+        }
     /*
         console.log(val[0]);
     console.log(val[0]['password']);

@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Add PV File</title>
+<title>PV System Performance</title>
 <meta name="generator" content="WYSIWYG Web Builder 11 Trial Version - http://www.wysiwygwebbuilder.com">
 <script src="/javascripts/jscookmenu.min.js"></script>
-<link href="/stylesheets/SolarDevilsAddPV.css" rel="stylesheet">
-<link href="/stylesheets/AddPV.css" rel="stylesheet">
-<script src="/stylesheets/jquery-1.12.4.min.js"></script>
-<script src="/stylesheets/wb.newsviewer.min.js"></script>
+<link href="/stylesheets/#IFT540-TP-UI.css" rel="stylesheet">
+<link href="/stylesheets/HomePage.css" rel="stylesheet">
+<script src="/javascripts/jquery-1.12.4.min.js"></script>
+<script src="/javascripts/wb.newsviewer.min.js"></script>
 <script>
 $(document).ready(function()
 {
@@ -31,7 +31,8 @@ $(document).ready(function()
 </script>
 </head>
 <body>
-<div id="wb_CssMenu2" style="position:absolute;left:371px;top:85px;width:1072px;height:35px;text-align:right;z-index:4;">
+<a href="http://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb11.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:967px;border-width:0;z-index:250"></a>
+<div id="wb_CssMenu2" style="position:absolute;left:371px;top:94px;width:1072px;height:35px;text-align:right;z-index:1;">
 <ul>
 <li class="firstmain"><a href="#" target="_self">Home</a>
 </li>
@@ -43,7 +44,7 @@ $(document).ready(function()
 </li>
 </ul>
 </div>
-<div id="SlideMenu1" style="position:absolute;left:32px;top:174px;width:307px;height:650px;z-index:5;">
+<div id="SlideMenu1" style="position:absolute;left:32px;top:172px;width:307px;height:650px;z-index:2;">
 <ul>
    <li><a>ADD PV SYSTEM</a>
       <ul>
@@ -57,13 +58,17 @@ $(document).ready(function()
          <li><a href="">Import from XML</a></li>
       </ul>
    </li>
-   <li class="SlideMenu1_Folder"><a href="/solarSystemInfo">PERFORMANCE ANALYSIS</a>
+   <li class="SlideMenu1_Folder"><a>PERFORMANCE ANALYSIS</a>
+      <ul>
+      </ul>
    </li>
    <li class="SlideMenu1_Folder"><a>COMPARE PV SYSTEMS PERFORMANCE</a>
       <ul>
       </ul>
    </li>
-   <li class="SlideMenu1_Folder"><a href="/addCerti">CERTIFICATION APPLICATION</a>
+   <li class="SlideMenu1_Folder"><a>CERTIFICATION APPLICATION</a>
+      <ul>
+      </ul>
    </li>
    <li class="SlideMenu1_Folder"><a>REIB APPLICATION</a>
       <ul>
@@ -75,16 +80,17 @@ $(document).ready(function()
    </li>
 </ul>
 </div>
-<div id="NewsFeedTicker1" style="overflow:hidden;position:absolute;left:1193px;top:213px;width:237px;height:552px;z-index:6;">
+<div id="NewsFeedTicker1" style="overflow:hidden;position:absolute;left:1193px;top:213px;width:237px;height:552px;z-index:3;">
 </div>
-<div id="wb_Image1" style="position:absolute;left:64px;top:29px;width:129px;height:118px;z-index:7;">
+<div id="wb_Image1" style="position:absolute;left:62px;top:36px;width:129px;height:117px;z-index:4;">
 <img src="images/New_Icon.png" id="Image1" alt=""></div>
-<div id="wb_Line1" style="position:absolute;left:-4px;top:168px;width:1457px;height:3px;z-index:8;">
-<img src="images/img0001.png" id="Line1" alt=""></div>
-<div id="wb_MenuBar1" style="position:absolute;left:32px;top:175px;width:252px;height:35px;z-index:1009;">
+<div id="wb_Line1" style="position:absolute;left:-4px;top:168px;width:1457px;height:3px;z-index:5;">
+<img src="images/img0004.png" id="Line1" alt=""></div>
+<div id="wb_MenuBar1" style="position:absolute;left:87px;top:178px;width:252px;height:35px;z-index:1006;">
 <div id="MenuBar1">
 <ul style="display:none;">
-<li><span></span><span>Welcome&nbsp;User</span></li>
+<li><span></span><span><a href="#">Settings</a></span></li>
+<li><span></span><span>Logout</span></li>
 </ul>
 </div>
 <script>
@@ -113,17 +119,10 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
 </script>
 </div>
 <div id="wb_Form2" style="position:absolute;left:339px;top:213px;width:852px;height:568px;z-index:10;">
-<form name="PerformanceData" method="get" action="/addPvForm" enctype="application/x-www-form-urlencoded" id="Form2">
-<div id="wb_Text2" style="position:absolute;left:166px;top:38px;width:573px;height:22px;text-align:center;z-index:0;">
-<span style="color:#000000;font-family:Arial;font-size:19px;"><strong>Select one of the following options to add new PV System</strong></span></div>
-<input type="submit" id="Button2" name="FormFIll" value="Manual Form" style="position:absolute;left:70px;top:150px;width:264px;height:64px;z-index:1;">
-<input formaction="/addPVFile" type="submit" id="Button3" name="FileUpload" value="File Upload" style="position:absolute;left:533px;top:150px;width:264px;height:64px;z-index:2;">
-</form>
+   <h2>Welcome to the PV Solar System.</h2>
+   <h3>Choose an action from the left panel.</h3>
 </div>
-<div id="wb_Text1" style="position:absolute;left:575px;top:180px;width:350px;height:24px;text-align:center;z-index:11;">
-<span style="color:#FF0000;font-family:Arial;font-size:20px;"><strong>Add PV System</strong></span></div>
-<label for="" id="Label1" style="position:absolute;left:193px;top:179px;width:138px;height:18px;line-height:18px;z-index:12;">Edit Profile |<a href="/logout">Logout</a></label>
-<div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:871px;width:100%;height:201px;z-index:13;">
+<div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:797px;width:100%;height:201px;z-index:7;">
    <div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;">
 <p>Bankable & InterOperable PV</p>
 <p>701 E Williams Field Rd,

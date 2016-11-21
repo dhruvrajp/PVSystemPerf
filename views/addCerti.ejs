@@ -1,28 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Untitled Page</title>
+    <title>PV System Performance</title>
     <meta name="generator" content="WYSIWYG Web Builder 11 Trial Version - http://www.wysiwygwebbuilder.com">
-    <link href="Certification.css" rel="stylesheet">
-    <link href="Certification.css" rel="stylesheet">
-    <script src="jquery-1.12.4.min.js"></script>
-    <script>
-        $(document).ready(function()
-        {
-            $(".SlideMenu1_Folder a").click(function()
-            {
-                if ($(this).parent().find('ul').is(':hidden'))
-                {
-                    $(this).parent().find('ul').show();
-                }
-                else
-                {
-                    $(this).parent().find('ul').hide();
-                }
-            });
-        });
-    </script>
+    <script src="/javascripts/jscookmenu.min.js"></script>
+    <link href="/stylesheets/#IFT540-TP-UI.css" rel="stylesheet">
+    <link href="/stylesheets/HomePage.css" rel="stylesheet">
+    <script src="/javascripts/jquery-1.12.4.min.js"></script>
 </head>
 <body>
 <a href="http://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb11.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:967px;border-width:0;z-index:250"></a>
@@ -42,8 +27,8 @@
     <ul>
         <li><a>ADD PV SYSTEM</a>
             <ul>
-                <li><a href="">Form Fill</a></li>
-                <li><a href="">Import from XML</a></li>
+                <li><a href="/addPvForm">Form Fill</a></li>
+                <li><a href="/addPvFile">Import from XML</a></li>
             </ul>
         </li>
         <li class="SlideMenu1_Folder"><a>TEST DATA REPORTING</a>
@@ -52,17 +37,13 @@
                 <li><a href="">Import from XML</a></li>
             </ul>
         </li>
-        <li class="SlideMenu1_Folder"><a>PERFORMANCE ANALYSIS</a>
-            <ul>
-            </ul>
+        <li class="SlideMenu1_Folder"><a href="/solarSystemInfo">PERFORMANCE ANALYSIS</a>
         </li>
         <li class="SlideMenu1_Folder"><a>COMPARE PV SYSTEMS PERFORMANCE</a>
             <ul>
             </ul>
         </li>
-        <li class="SlideMenu1_Folder"><a>CERTIFICATION</a>
-            <ul>
-            </ul>
+        <li class="SlideMenu1_Folder"><a href="/addCerti">CERTIFICATION APPLICATION</a>
         </li>
         <li class="SlideMenu1_Folder"><a>REIB APPLICATION</a>
             <ul>
@@ -74,32 +55,59 @@
         </li>
     </ul>
 </div>
-<div id="wb_Image1" style="position:absolute;left:62px;top:36px;width:129px;height:117px;z-index:3;">
-    <img src="images/New Icon.png" id="Image1" alt=""></div>
-<div id="wb_Line1" style="position:absolute;left:-4px;top:168px;width:1457px;height:3px;z-index:4;">
-    <img src="images/img0001.png" id="Line1" alt=""></div>
-<label for="" id="Label1" style="position:absolute;left:32px;top:184px;width:150px;height:18px;line-height:18px;z-index:5;">User1</label>
-<label for="" id="Label2" style="position:absolute;left:193px;top:184px;width:138px;height:18px;line-height:18px;z-index:6;">Edit Profile | <a href="/logout">Logout</a></label>
-<label for="" id="Label3" style="position:absolute;left:379px;top:181px;width:250px;height:26px;line-height:26px;z-index:7;">Certification</label>
-<label for="" id="Label4" style="position:absolute;left:379px;top:224px;width:172px;height:24px;line-height:24px;z-index:8;">You can:</label>
-<div id="wb_BulletedList1" style="position:absolute;left:382px;top:266px;width:253px;height:48px;z-index:9;">
-    <div>
-        <div class="bullet" style="height:24px;">&bull;</div>
-        <div class="item" style="height:24px;text-align:left;"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Add Certification Attempt Data</span></div>
+<div id="wb_Image1" style="position:absolute;left:62px;top:36px;width:129px;height:117px;z-index:4;">
+    <img src="images/New_Icon.png" id="Image1" alt=""></div>
+<div id="wb_Line1" style="position:absolute;left:-4px;top:168px;width:1457px;height:3px;z-index:5;">
+    <img src="images/img0004.png" id="Line1" alt=""></div>
+<div id="wb_MenuBar1" style="position:absolute;left:87px;top:178px;width:252px;height:35px;z-index:1006;">
+    <div id="MenuBar1">
+        <ul style="display:none;">
+            <li><span></span><span><a href="#">Settings</a></span></li>
+            <li><span></span><span>Logout</span></li>
+        </ul>
     </div>
-    <div style="clear:both">
-        <div class="bullet" style="height:24px;">&bull;</div>
-        <div class="item" style="height:24px;text-align:left;"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Add Certificate Data</span></div>
-    </div>
+    <script>
+        var cmMenuBar1 =
+        {
+            mainFolderLeft: '',
+            mainFolderRight: '',
+            mainItemLeft: '',
+            mainItemRight: '',
+            folderLeft: '',
+            folderRight: '',
+            itemLeft: '',
+            itemRight: '',
+            mainSpacing: 0,
+            subSpacing: 0,
+            delay: 100,
+            offsetHMainAdjust: [0, 0],
+            offsetSubAdjust: [0, 0]
+        };
+        var cmMenuBar1HSplit = [_cmNoClick, '<td class="MenuBar1MenuSplitLeft"><div></div></td>' +
+        '<td class="MenuBar1MenuSplitText"><div></div></td>' +
+        '<td class="MenuBar1MenuSplitRight"><div></div></td>'];
+        var cmMenuBar1MainVSplit = [_cmNoClick, '<div><table width="15" cellspacing="0"><tr><td class="MenuBar1HorizontalSplit">|</td></tr></table></div>'];
+        var cmMenuBar1MainHSplit = [_cmNoClick, '<td colspan="3" class="MenuBar1MainSplitText"><div></div></td>'];
+        cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
+    </script>
 </div>
-<div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:797px;width:100%;height:201px;z-index:10;<div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;">
-<p>Bankable & InterOperable PV</p>
-<p>701 E Williams Field Rd,
-    Mesa,Arizona 85212</p>
-<p><a href="www.asu.edu">ASU Website</a>
-    <label align ="right">&copy; All Rights Reserved</label></p>
-<p><a href='#'>Site Map</a> | <a href='#'>Terms and Conditions</a> |<a href='#'>Privacy Policy</a> |<a href='#'>About Us</a></p>
-</div>">
+<div>
+    <div class="bullet" style="height:24px;">&bull;</div>
+    <div class="item" style="position:absolute;left:380px;top:250px;width:852px;height:568px;z-index:10;text-align:left;"><span style="color:#000000;font-family:Arial;font-size:23px;line-height:16px;"><a href ="/addNewCertiAttempt">Add Certification Attempt Data</a></span></div>
+</div>
+<div style="clear:both">
+    <div class="bullet" style="height:24px;">&bull;</div>
+    <div class="item" style="position:absolute;left:380px;top:300px;width:852px;height:568px;z-index:10;text-align:left;"><span style="color:#000000;font-family:Arial;font-size:23px;line-height:16px;"><a href="addNewCertiData">Add Certificate Data</a></span></div>
+</div>
+<div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:797px;width:100%;height:201px;z-index:7;">
+    <div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;">
+        <p>Bankable & InterOperable PV</p>
+        <p>701 E Williams Field Rd,
+            Mesa,Arizona 85212</p>
+        <p><a href="www.asu.edu">ASU Website</a>
+            <label align ="right">&copy; All Rights Reserved</label></p>
+        <p><a href='#'>Site Map</a> | <a href='#'>Terms and Conditions</a> |<a href='#'>Privacy Policy</a> |<a href='#'>About Us</a></p>
+    </div>">
 </div>
 </body>
 </html>

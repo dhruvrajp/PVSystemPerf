@@ -34,15 +34,30 @@ exports.processCertiAttemptForm = function(req,res){
     var certify = req.body.certify;
     var attemptdate = String(year) +'-' + String(month) + '-' + String(day);
     console.log(String(attemptid) + " " + String(systemid) + " " + String(certificateid) + " "+attemptdate +" " + String(day) + " " + String(month) + " " + String(year) + " " + String(attemptstatus) + "Comments:"+ String(comments) + String(certify));
-
-    var query = "insert into certificateattempt (attemptid, systemid, certificateid, attemptdate , attemptstatus , comments) values (:attemptid, :systemid, :certificateid, :attemptdate, :attemptstatus, :comments)";
-    sequelize.query(query,{ replacements: {attemptid: attemptid, systemid: systemid, certificateid: certificateid, attemptdate:attemptdate, attemptstatus:attemptstatus , comments:comments }})
-        .then(function(success) {
-            console.log("insert into certificate attempt successful "+ JSON.stringify(success));
-            return res.render("certiSuccess");
-        });
+    if (attemptid == null || attemptid =="" || comments == null || comments == "" || certify == null || certify == "")
+    {
+        return res.render("certiFailure");
+    }
+    else {
 
 
+        var query = "insert into certificateattempt (attemptid, systemid, certificateid, attemptdate , attemptstatus , comments) values (:attemptid, :systemid, :certificateid, :attemptdate, :attemptstatus, :comments)";
+        sequelize.query(query, {
+                replacements: {
+                    attemptid: attemptid,
+                    systemid: systemid,
+                    certificateid: certificateid,
+                    attemptdate: attemptdate,
+                    attemptstatus: attemptstatus,
+                    comments: comments
+                }
+            })
+            .then(function (success) {
+                console.log("insert into certificate attempt successful " + JSON.stringify(success));
+                return res.render("certiSuccess");
+            });
+
+    }
 };
 
 exports.processCertiDataForm = function(req,res){
@@ -62,11 +77,25 @@ exports.processCertiDataForm = function(req,res){
     var attemptdate = String(year) +'-' + String(month) + '-' + String(day);
     var validdate = String(validyear) + '-' + String(validmonth) + '-' + String(validyear);
    // console.log(String(attemptid) + " " + String(systemid) + " " + String(certificateid) + " "+attemptdate +" " + String(day) + " " + String(month) + " " + String(year) + " " + String(attemptstatus) + "Comments:"+ String(comments) + String(certify));
-
-    var query = "insert into certificates (certificateid, attemptid, systemid, certificatetypeid, dateeffectivefrom , expirydate) values (:certificatenumber, :attemptid, :systemid, :certificateid, :attemptdate, :validdate)";
-    sequelize.query(query,{ replacements: {certificatenumber: certificatenumber, attemptid: attemptid, systemid: systemid, certificateid: certificateid, attemptdate:attemptdate, validdate: validdate }})
-        .then(function(success) {
-            console.log("insert into certificate attempt successful "+ JSON.stringify(success));
-            return res.render("certiSuccess");
-        });
+    if (certificatenumber == null || certificatenumber == "" || certify == null || certify =="" )
+    {
+        return res.render("certiFailure")
+    }
+    else {
+        var query = "insert into certificates (certificateid, attemptid, systemid, certificatetypeid, dateeffectivefrom , expirydate) values (:certificatenumber, :attemptid, :systemid, :certificateid, :attemptdate, :validdate)";
+        sequelize.query(query, {
+                replacements: {
+                    certificatenumber: certificatenumber,
+                    attemptid: attemptid,
+                    systemid: systemid,
+                    certificateid: certificateid,
+                    attemptdate: attemptdate,
+                    validdate: validdate
+                }
+            })
+            .then(function (success) {
+                console.log("insert into certificate attempt successful " + JSON.stringify(success));
+                return res.render("certiSuccess");
+            });
+    }
 };
