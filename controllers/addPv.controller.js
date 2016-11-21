@@ -12,7 +12,7 @@ exports.renderHome = function(req, res) {
         console.log("This email"+req.session.email);
         res.render('addPv');
     }else{
-        res.render('authError');
+        res.render('loginRegPage');
     }
 };
 
@@ -21,7 +21,7 @@ exports.renderForm = function(req,res){
     if(sess.email) {
         res.render('addPvForm');
     }else{
-        res.render('authError');
+        res.render('loginRegPage');
     }
 };
 
@@ -30,7 +30,7 @@ exports.renderFile = function(req,res){
     if(sess.email) {
          res.render('addPvFile');
     }else{
-         res.render('authError');
+         res.render('loginRegPage');
     }
 };
 
@@ -39,7 +39,7 @@ exports.renderSuccess= function(req,res){
     if(sess.email) {
         res.render('success');
     }else{
-        res.render('authError');
+        res.render('loginRegPage');
     }
 };
 
@@ -68,6 +68,6 @@ exports.processForm = function(req,res){
                 return res.redirect("/success");
             });
     }else{
-        res.render('authError');
+        res.render('loginRegPage');
     }
 };
