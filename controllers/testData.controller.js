@@ -53,6 +53,7 @@ exports.processForm = function(req,res){
             testAgencyID = (JSON.stringify(val[0]).split(":"))[1].replace('}','');
             console.log("Inserting Test Data");
             var query = "insert into testdata (TestTypeID,TestTypeName,TesttingAgencyID,ClimateType,SiteName,Model,TestMonthYear,NumberOfModulesInSystem,AgeAtEvaluation,ModulesTested,MeasurementUncertainty) values (:testTypeId,:testType,:testAgencyID,:climateType,:siteName,:model,:testMonthYear,:numOfModules,:ageEval,:modulesTested,:measurementUncertainty)";
+            console.log(query);
             sequelize.query(query, {
             replacements: {
                 testTypeId: testTypeId,
@@ -69,14 +70,19 @@ exports.processForm = function(req,res){
             }
             })
             .then(function (success) {
-                console.log("Test Data insertion Success" + JSON.stringify(success));
-                if(testTypeId.toString()==1) {
-                    req.session.testTypeId=1;
-                    return res.redirect("/testDataOCSC&Efficiency");
+                if(success) {
+                    console.log("Test Data insertion Success" + JSON.stringify(success));
+                    if (testTypeId.toString() == 1) {
+                        req.session.testTypeId = 1;
+                        return res.redirect("/testDataOCSC&Efficiency");
+                    } else {
+                        req.session.testTypeId = 2;
+                        return res.redirect("/testDataVisualInspection");
+                    }
                 }else{
-                    req.session.testTypeId=2;
-                    return res.redirect("/testDataVisualInspection");
+                    res.render("authError")
                 }
+
             });
         });
     }else{
@@ -139,8 +145,12 @@ exports.processOCSC=function(req,res){
                 }
             })
                 .then(function (success) {
-                    console.log("Test Data insertion Success" + JSON.stringify(success));
+                    if(success) {
+                        console.log("Test Data insertion Success" + JSON.stringify(success));
                         return res.redirect("/success");
+                    }else{
+                        res.render("authError")
+                    }
                 });
         });
     }else{
@@ -196,8 +206,12 @@ exports.processVisual=function(req,res){
                 }
             })
                 .then(function (success) {
-                    console.log("Test Data insertion Success" + JSON.stringify(success));
-                    return res.redirect("/success");
+                    if(success) {
+                        console.log("Test Data insertion Success" + JSON.stringify(success));
+                        return res.redirect("/success");
+                    }else{
+                            res.render("authError")
+                        }
                 });
         });
     }else{

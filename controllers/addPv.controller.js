@@ -64,8 +64,12 @@ exports.processForm = function(req,res){
     var query = "insert into solarsystems (location,site,manufacturer,manufacturermodeldesignation,technology,fixedtilttracking,construction,numberofmodulesinthesystem,exposedyearsatthetimeofevaluation,evaluationyear) values (:location,:site,:manufacturer,:manufacturermodeldesignation,:technology,:fixedtilttracking,:construction,:numberofmodulesinthesystem,:exposedyearsatthetimeofevaluation,:evaluationyear)";
         sequelize.query(query,{ replacements: {location:location,site:site,manufacturer:manufacturer,manufacturermodeldesignation:manufacturermodeldesignation,technology:technology,fixedtilttracking:fixedtilttracking,construction:construction,numberofmodulesinthesystem:numberofmodulesinthesystem,exposedyearsatthetimeofevaluation:exposedyearsatthetimeofevaluation,evaluationyear:evaluationyear}})
             .then(function(success) {
-                console.log("signup successful"+JSON.stringify(success));
-                return res.redirect("/success");
+                if(success) {
+                    console.log("signup successful" + JSON.stringify(success));
+                    return res.redirect("/success");
+                }else{
+                    res.render("authError");
+                }
             });
     }else{
         res.render('loginRegPage');

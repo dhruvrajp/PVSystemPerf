@@ -31,10 +31,10 @@
                 <li><a href="/addPvFile">Import from XML</a></li>
             </ul>
         </li>
-        <li class="SlideMenu1_Folder"><a>TEST DATA REPORTING</a>
+        <li class="SlideMenu1_Folder"><a href="/testDataMainPage">TEST DATA REPORTING</a>
             <ul>
-                <li><a href="">Form Fill</a></li>
-                <li><a href="">Import from XML</a></li>
+                <li><a href="/testDataMainPage">Form Fill</a></li>
+                <li><a href="/testDataMainPage">Import from XML</a></li>
             </ul>
         </li>
         <li class="SlideMenu1_Folder"><a href="/solarSystemInfo">PERFORMANCE ANALYSIS</a>
@@ -44,6 +44,8 @@
             </ul>
         </li>
         <li class="SlideMenu1_Folder"><a href="/addCerti">CERTIFICATION APPLICATION</a>
+            <ul>
+            </ul>
         </li>
         <li class="SlideMenu1_Folder"><a>REIB APPLICATION</a>
             <ul>
@@ -93,7 +95,7 @@
 </div>
 <div id="wb_Form2" style="position:absolute;left:850px;top:300px;width:852px;height:568px;z-index:10;">
     <h2 style="margin-left:-45px">Select the Solar System</h2>
-        <form method="post" action="/solarSystemInfoResults" enctype="application/x-www-form-urlencoded"">
+        <form method="post" action="/solarSystemInfoResults" enctype="application/x-www-form-urlencoded">
         <select name="systemcode">
             <% for(var i=0; i<vals.length; i++) { %>
             <option value='<%=vals[i]["systemcode"]%>'>

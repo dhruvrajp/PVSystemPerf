@@ -4,7 +4,7 @@
 'use strict';
 
 var sequelize=require("../config/sequelize").getSequelize;
-
+var sess;
 exports.printResults = function(req, res){
     /*
      var email = req.body.username;
@@ -16,30 +16,40 @@ exports.printResults = function(req, res){
      ).then(function(val){
 
      */
-    var systemcode = req.body.systemcode;
-    var query = "SELECT * FROM solarsystems WHERE systemcode = :systemcode";
-    sequelize.query(query, {replacements: {systemcode: systemcode}, type : sequelize.QueryTypes.SELECT}
-    ).then(function(val){
-        //var x;
-        //for (x in val.keys())
-        console.log(val);
-        var myobj ='{"vals":'+JSON.stringify(val)+'}';
-        res.render('solarSystemInfoResults',JSON.parse(myobj));
+    sess = req.session;
+    if (sess.email){
+        var systemcode = req.body.systemcode;
+        var query = "SELECT * FROM solarsystems WHERE systemcode = :systemcode";
+        sequelize.query(query, {replacements: {systemcode: systemcode}, type : sequelize.QueryTypes.SELECT}
+        ).then(function(val){
+            //var x;
+            //for (x in val.keys())
+            console.log(val);
+            var myobj ='{"vals":'+JSON.stringify(val)+'}';
+            res.render('solarSystemInfoResults',JSON.parse(myobj));
 
-    });
+        });
+    }else{
+        res.render('loginRegPage');
+    }
     //res.render('solarSystemInfoResults');
 };
 
 exports.renderHome = function(req, res) {
-    var query = "SELECT systemcode FROM solarsystems";
-    sequelize.query(query, {type : sequelize.QueryTypes.SELECT}
-    ).then(function(val){
-        //var x;
-       //for (x in val.keys())
-        //console.log("Inside for");
-        var myobj ='{"vals":'+JSON.stringify(val)+'}';
-        res.render('solarSystemInfo',JSON.parse(myobj));
+    sess = req.session;
+    if(sess.email){
+        var query = "SELECT systemcode FROM solarsystems";
+        sequelize.query(query, {type : sequelize.QueryTypes.SELECT}
+        ).then(function(val){
+            //var x;
+           //for (x in val.keys())
+            //console.log("Inside for");
+            var myobj ='{"vals":'+JSON.stringify(val)+'}';
+            res.render('solarSystemInfo',JSON.parse(myobj));
 
-    });
+        });
+    }else{
+        res.render('loginRegPage');
+    }
 
 };
