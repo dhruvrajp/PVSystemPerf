@@ -8,4 +8,5 @@ var solarSystemInfocontroller=require("../controllers/solarSystemInfo.controller
 
 module.exports = function(app){
     app.post('/solarSystemInfoResults', solarSystemInfocontroller.printResults);
+    app.get('/solarSystemMonitoringResults', solarSystemInfocontroller.printMonitoringResults);
 };

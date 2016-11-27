@@ -10,6 +10,7 @@ var main = require('./routes/index');
 var addCerti = require('./routes/addCerti');
 var sequelize = require('./node_modules/sequelize');
 var solarSystemInfo=require('./routes/solarSystemInfo');
+var failureModes = require('./routes/failureModes');
 var app = express();
 
 // view engine setup
@@ -31,12 +32,14 @@ app.use(session({ secret: 'secretSession' }));
 
 app.use('/', main);
 app.use('/addCerti', addCerti);
-app.use('/solarSysteminfo', solarSystemInfo)
+app.use('/solarSysteminfo', solarSystemInfo);
+app.use('/failureModes', failureModes);
 require(path.join(__dirname+'/routes/addPvForm.js'))(app);
 require(path.join(__dirname+'/routes/loginReg.js'))(app);
 require(path.join(__dirname+'/routes/addCertiForm.js'))(app);
 require(path.join(__dirname+'/routes/solarSystemInfoResults.js'))(app);
 require(path.join(__dirname+'/routes/testDataRoutes.js'))(app);
+require(path.join(__dirname+'/routes/failureModesResults.js'))(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
