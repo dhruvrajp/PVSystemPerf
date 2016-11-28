@@ -15,6 +15,53 @@ exports.renderHome=function(req,res){
     }
 };
 
+exports.renderOCSC=function(req,res){
+    sess=req.session;
+    console.log(req.session.email);
+    if(sess.email) {
+        res.render("testDataOCSC&Efficiency");
+    }else{
+        res.render("loginRegPage");
+    }
+};
+
+exports.renderVisual=function(req,res){
+    sess=req.session;
+    if(sess.email) {
+        res.render("testDataVisual");
+    }else{
+        res.render("loginRegPage");
+    }
+};
+
+exports.renderOCSCFile=function(req,res){
+    sess=req.session;
+    console.log(req.session.email);
+    if(sess.email) {
+        res.render("testDataOCSC&Efficiency");
+    }else{
+        res.render("loginRegPage");
+    }
+};
+
+exports.renderVisualFile=function(req,res){
+    sess=req.session;
+    console.log(req.session.email);
+    if(sess.email) {
+        res.render("testDataOCSC&Efficiency");
+    }else{
+        res.render("loginRegPage");
+    }
+};
+
+exports.renderFile=function(req,res){
+    sess=req.session;
+    if(sess.email) {
+        res.render("addTestFile");
+    }else{
+        res.render("loginRegPage");
+    }
+};
 
 exports.processForm = function(req,res){
     sess=req.session;

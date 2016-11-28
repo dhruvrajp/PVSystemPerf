@@ -34,25 +34,7 @@ $(document).ready(function()
       var isValid = $.validate.form(this);
       return isValid;
    });
-   $("#FileUpload1").validate(
-   {
-      required: true,
-      type: 'custom',
-      param: /([^\/\\]+)\.(xml)$/i,
-      color_text: '#000000',
-      color_hint: '#00FF00',
-      color_error: '#FF0000',
-      color_border: '#808080',
-      nohint: false,
-      font_family: 'Arial',
-      font_size: '13px',
-      position: 'topleft',
-      offsetx: 0,
-      offsety: 0,
-      effect: 'none',
-      error_text: 'Upload XML File Only'
-   });
-});
+  });
 </script>
 </head>
 <body>
@@ -80,7 +62,7 @@ $(document).ready(function()
    <li class="SlideMenu1_Folder"><a href="/testDataMainPage">TEST DATA REPORTING</a>
       <ul>
          <li><a href="/testDataMainPage">Form Fill</a></li>
-         <li><a href="/testDataMainPage">Import from XML</a></li>
+         <li><a href="/addTestFile">Import from XML</a></li>
       </ul>
    </li>
    <li class="SlideMenu1_Folder"><a href="/solarSystemInfo">PERFORMANCE ANALYSIS</a>
@@ -139,10 +121,9 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
 </script>
 </div>
 <div id="wb_Form2" style="position:absolute;left:339px;top:212px;width:852px;height:573px;z-index:10;">
-<form name="PerformanceData" method="post" action="" enctype="application/x-www-form-urlencoded" id="Form2">
-<input type="submit" id="Button1" name="Submit" value="Submit" style="position:absolute;left:689px;top:470px;width:96px;height:25px;z-index:0;">
-<input type="file" id="FileUpload1" style="position:absolute;left:126px;top:97px;width:442px;height:21px;line-height:21px;z-index:1;" name="PVFile">
-<label for="" id="Label2" style="position:absolute;left:14px;top:95px;width:139px;height:18px;line-height:18px;z-index:2;">File</label>
+<form method="post" enctype="multipart/form-data" action="/fileUploadPV">
+   <input type="file" name="file", id="file">
+   <input type="submit">
 </form>
 </div>
 <div id="wb_Text1" style="position:absolute;left:575px;top:180px;width:350px;height:24px;text-align:center;z-index:11;">

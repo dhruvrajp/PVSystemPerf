@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var flash = require('connect-flash')
 var session= require('express-session');
+var busboy = require('connect-busboy');
 
 var main = require('./routes/index');
 var addCerti = require('./routes/addCerti');
@@ -20,6 +21,7 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
+app.use(busboy());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,7 +34,7 @@ app.use(session({ secret: 'secretSession' }));
 app.use('/', main);
 app.use('/addCerti', addCerti);
 app.use('/solarSysteminfo', solarSystemInfo)
-require(path.join(__dirname+'/routes/addPvForm.js'))(app);
+require(path.join(__dirname+'/routes/addPv.js'))(app);
 require(path.join(__dirname+'/routes/loginReg.js'))(app);
 require(path.join(__dirname+'/routes/addCertiForm.js'))(app);
 require(path.join(__dirname+'/routes/solarSystemInfoResults.js'))(app);
