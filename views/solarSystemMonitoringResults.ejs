@@ -8,6 +8,97 @@
     <link href="/stylesheets/#IFT540-TP-UI.css" rel="stylesheet">
     <link href="/stylesheets/HomePage.css" rel="stylesheet">
     <script src="/javascripts/jquery-1.12.4.min.js"></script>
+    <script src="/javascripts/wb.newsviewer.min.js"></script>
+    <style>
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+    <!-- Chart code -->
+    <script>
+        var chart = AmCharts.makeChart( "chartdiv", {
+            "type": "serial",
+            "addClassNames": true,
+            "theme": "light",
+            "autoMargins": false,
+            "marginLeft": 420,
+            "marginRight": 8,
+            "marginTop": 260,
+            "marginBottom": 26,
+            "balloon": {
+                "adjustBorderColor": false,
+                "horizontalPadding": 10,
+                "verticalPadding": 8,
+                "color": "#ffffff"
+            },
+
+            "dataProvider": <%- JSON.stringify(vals) %>
+            ,
+            "valueAxes": [ {
+                "axisAlpha": 0,
+                "position": "left"
+            } ],
+            "startDuration": 1,
+            "graphs": [ {
+                "alphaField": "alpha",
+                "balloonText": "<span style='font-size:12px;'>[[title]] in [[category]]:<br><span style='font-size:20px;'>[[value]]</span> [[additional]]</span>",
+                "fillAlphas": 1,
+                "title": "Actual Power (kWs)",
+                "type": "column",
+                "valueField": "ActualPower",
+                "dashLengthField": "dashLengthColumn"
+            }, {
+                "id": "graph2",
+                "balloonText": "<span style='font-size:12px;'>[[title]] in [[category]]:<br><span style='font-size:20px;'>[[value]]</span> [[additional]]</span>",
+                "bullet": "round",
+                "lineThickness": 3,
+                "bulletSize": 7,
+                "bulletBorderAlpha": 1,
+                "bulletColor": "#FFFFFF",
+                "useLineColorForBulletBorder": true,
+                "bulletBorderThickness": 3,
+                "fillAlphas": 0,
+                "lineAlpha": 1,
+                "title": "Predicted Power (kWs)",
+                "valueField": "PredictedPower",
+                "dashLengthField": "dashLengthLine"
+            } ],
+            "categoryField": "monthYear",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "axisAlpha": 0,
+                "tickLength": 0
+            },
+            "export": {
+                "enabled": true
+            }
+        } );
+    </script>
+
+    <script>
+        $(document).ready(function()
+        {
+            $(".SlideMenu1_Folder a").click(function()
+            {
+                if ($(this).parent().find('ul').is(':hidden'))
+                {
+                    $(this).parent().find('ul').show();
+                }
+                else
+                {
+                    $(this).parent().find('ul').hide();
+                }
+            });
+    </script>
 </head>
 <body>
 <a href="http://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb11.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:967px;border-width:0;z-index:250"></a>
@@ -31,10 +122,10 @@
                 <li><a href="/addPvFile">Import from XML</a></li>
             </ul>
         </li>
-        <li class="SlideMenu1_Folder"><a>TEST DATA REPORTING</a>
+        <li class="SlideMenu1_Folder"><a href="/testDataMainPage">TEST DATA REPORTING</a>
             <ul>
                 <li><a href="/testDataMainPage">Form Fill</a></li>
-                    <li><a href="/addTestFile">Import from XML</a></li>
+                <li><a href="/testDataMainPage">Import from XML</a></li>
             </ul>
         </li>
         <li class="SlideMenu1_Folder"><a href="/solarSystemInfo">PERFORMANCE ANALYSIS</a>
@@ -53,6 +144,7 @@
         </li>
     </ul>
 </div>
+
 <div id="wb_Image1" style="position:absolute;left:62px;top:36px;width:129px;height:117px;z-index:4;">
     <img src="images/New_Icon.png" id="Image1" alt=""></div>
 <div id="wb_Line1" style="position:absolute;left:-4px;top:168px;width:1457px;height:3px;z-index:5;">
@@ -61,7 +153,7 @@
     <div id="MenuBar1">
         <ul style="display:none;">
             <li><span></span><span><a href="#">Settings</a></span></li>
-            <li><span></span><span>Logout</span></li>
+            <li><span></span><span><a href="/logout">Logout</a></span></li>
         </ul>
     </div>
     <script>
@@ -89,9 +181,8 @@
         cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
     </script>
 </div>
-<div id="wb_Form2" style="position:absolute;left:750px;top:275px;width:852px;height:568px;z-index:10;">
-    <h2>Data Could not be entered this time.<br>
-    Please try again later.</h2>
+<div><h2 style="position: absolute;left:750px;top:213px;width:852px;height:568px;z-index:10;">Graph displaying the Predicted Power vs Actual Power for the System</h2></div>
+<div id="chartdiv">
 </div>
 <div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:797px;width:100%;height:201px;z-index:7;">
     <div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;">

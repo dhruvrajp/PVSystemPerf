@@ -17,6 +17,7 @@
     "sequelize": "latest",
     "mysql":"latest",
     "xml2js":"latest",
-    "connect-busboy":"latest"
+    "connect-busboy":"latest",
+	"express-session":"latest"
   }
 }
