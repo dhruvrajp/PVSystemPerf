@@ -10,7 +10,7 @@ var sess;
 exports.renderHome = function(req, res) {
     sess = req.session;
     if(sess.email){
-        var query = "SELECT climatetype FROM testdata WHERE climatetype IS NOT NULL";
+        var query = "SELECT DISTINCT climatetype FROM testdata WHERE climatetype IS NOT NULL";
         sequelize.query(query, {type : sequelize.QueryTypes.SELECT}
         ).then(function(val){
             //var x;
