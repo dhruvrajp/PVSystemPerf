@@ -10,7 +10,7 @@ module.exports = function(app){
     app.get('/testDataMainPage',testDataController.renderHome);
     app.post('/testProcessForm',testDataController.processForm);
     app.get('/testDataOCSC&Efficiency',testDataController.renderOCSC);
-    app.get('/testDataVisualInspection',testDataController.renderVisual);
+    app.get('/testDataVisual',testDataController.renderVisual);
     app.get('/testDataOCSCFileUpload',testDataController.renderOCSCFile);
     app.get('/testDataVisualFileUpload',testDataController.renderVisualFile);
     app.post('/processOCSC',testDataController.processOCSC);
@@ -20,4 +20,6 @@ module.exports = function(app){
     app.post('/fileUploadTest',parseXML.parseTestFile);
     app.post('/fileUploadOCSC',parseXML.parseSpTest1);
     app.post('/fileUploadVisual',parseXML.parseSpTest2);
+    app.get('/testDataDisplay',testDataController.renderDisplayOptions);
+    app.post('/testDataDisplayResult',testDataController.printResults);
 };

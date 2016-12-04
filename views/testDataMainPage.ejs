@@ -63,7 +63,7 @@ $(document).ready(function()
       <ul>
       </ul>
    </li>
-   <li class="SlideMenu1_Folder"><a>REIB APPLICATION</a>
+   <li class="SlideMenu1_Folder"><a href="/testDataDisplay">TEST DATA DISPLAY</a>
       <ul>
       </ul>
    </li>
@@ -110,29 +110,29 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
 </script>
 </div>
 <label for="" id="Label3" style="position:absolute;left:386px;top:216px;width:250px;height:26px;line-height:26px;z-index:29;">Test Data Form</label>
-<div id="wb_Form1" style="position:absolute;left:391px;top:348px;width:1064px;height:423px;z-index:31;">
+<div id="wb_Form1" style="position:absolute;left:391px;top:248px;width:450px;height:423px;z-index:31;">
 <form name="Test_Data" method="post" action="/testProcessForm" enctype="application/x-www-form-urlencoded" id="Form1">
 <label for="testType" id="Label1" style="position:absolute;left:9px;top:14px;width:175px;height:18px;line-height:18px;z-index:0;">Test Type Name</label>
-<select class="testType" name="testType" size="1" id="testType" style="position:absolute;left:202px;top:14px;width:200px;height:28px;z-index:1;">
+<select class="testType" name="testType" size="1" id="testType" style="position:absolute;left:202px;top:14px;width:204px;height:28px;z-index:1;">
 <option value="Visual Inspection">Visual Inspection</option>
 <option value="OC, SC and Efficiency">OC, SC and Efficiency Tests</option>
 </select>
 <label for="testAgencyName" id="Label2" style="position:absolute;left:9px;top:47px;width:175px;height:18px;line-height:18px;z-index:2;">Testing Agency Name</label>
-<input class="testAgencyName" type="text" name="testAgencyName" size="1" id="testAgencyName" style="position:absolute;left:202px;top:47px;width:200px;height:18px;z-index:3;">
+<input class="testAgencyName" type="text" name="testAgencyName" size="1" id="testAgencyName" style="position:absolute;left:202px;top:47px;width:200px;height:18px;z-index:3;" required>
 </input>
 <label for="climateType" id="Label4" style="position:absolute;left:9px;top:80px;width:175px;height:18px;line-height:18px;z-index:4;">Climate Type</label>
-<select name="climateType" size="1" id="climateType" style="position:absolute;left:202px;top:80px;width:200px;height:28px;z-index:5;">
+<select name="climateType" size="1" id="climateType" style="position:absolute;left:202px;top:80px;width:204px;height:28px;z-index:5;" required>
 <option value="Hot Dry">Hot Dry</option>
 <option value="Cold Dry">Cold Dry</option>
 </select>
 <label for="siteName" id="Label5" style="position:absolute;left:9px;top:113px;width:175px;height:18px;line-height:18px;z-index:6;">Site Name</label>
-<input type="text" name="siteName" size="1" id="siteName" style="position:absolute;left:202px;top:113px;width:200px;height:18px;z-index:7;">
+<input type="text" name="siteName" size="1" id="siteName" style="position:absolute;left:202px;top:113px;width:200px;height:18px;z-index:7;" required>
 </input>
 <label for="model" id="Label6" style="position:absolute;left:9px;top:146px;width:175px;height:18px;line-height:18px;z-index:8;">Model</label>
-<input type="text" name="model" size="1" id="model" style="position:absolute;left:202px;top:146px;width:200px;height:18px;z-index:9;">
+<input type="text" name="model" size="1" id="model" style="position:absolute;left:202px;top:146px;width:200px;height:18px;z-index:9;" required>
 </input>
 <label for="month" id="Label7" style="position:absolute;left:9px;top:179px;width:175px;height:18px;line-height:18px;z-index:10;">Test Month & Year</label>
-<select name="month" size="1" id="month" style="position:absolute;left:202px;top:179px;width:123px;height:28px;z-index:11;">
+<select name="month" size="1" id="month" style="position:absolute;left:202px;top:179px;width:123px;height:28px;z-index:11;" required>
 <option value="JAN">January</option>
 <option value="FEB">February</option>
 <option value="MAR">March</option>
@@ -147,18 +147,18 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
 <option value="DEC">December</option>
 </select>
 <label for="ageEvalYear" id="Label8" style="position:absolute;left:9px;top:212px;width:175px;height:18px;line-height:18px;z-index:12;">Age At Evaluation</label>
-<select name="ageEvalYear" size="1" id="ageEvalYear" style="position:absolute;left:202px;top:212px;width:104px;height:28px;z-index:13;">
+<select name="ageEvalYear" size="1" id="ageEvalYear" style="position:absolute;left:202px;top:212px;width:200px;height:28px;z-index:13;">
 <option value="1 Year(s)">1 Year(s)</option>
 <option value="2 Years">2 Years</option>
 </select>
 <label for="numOfModules" id="Label9" style="position:absolute;left:9px;top:245px;width:175px;height:18px;line-height:18px;z-index:14;">Number Of Modules In System</label>
-<input type="text" id="numOfModules" style="position:absolute;left:202px;top:245px;width:190px;height:18px;line-height:18px;z-index:15;" name="numOfModules" value="" placeholder="Enter numeric value">
+<input type="text" id="numOfModules" style="position:absolute;left:202px;top:245px;width:200px;height:18px;line-height:18px;z-index:15;" name="numOfModules" value="" placeholder="Enter numeric value" required>
 <label for="modulesTested" id="Label10" style="position:absolute;left:9px;top:278px;width:175px;height:18px;line-height:18px;z-index:16;">Modules Tested</label>
-<input type="text" id="modulesTested" style="position:absolute;left:202px;top:278px;width:190px;height:18px;line-height:18px;z-index:17;" name="modulesTested" value="" placeholder="Enter numeric value">
+<input type="text" id="modulesTested" style="position:absolute;left:202px;top:278px;width:200px;height:18px;line-height:18px;z-index:17;" name="modulesTested" value="" placeholder="Enter numeric value" required>
 <label for="measurementUncertainity" id="Label11" style="position:absolute;left:9px;top:311px;width:175px;height:18px;line-height:18px;z-index:18;">Measurement Uncertainty</label>
-<input type="text" id="measurementUncertainity" style="position:absolute;left:202px;top:311px;width:190px;height:18px;line-height:18px;z-index:19;" name="measurementUncertainity" value="" placeholder="Enter percentage value">
-<input type="submit" id="Submit" name="Submit" value="Next" style="position:absolute;left:306px;top:368px;width:96px;height:25px;z-index:20;">
-<select name="year" size="1" id="year" style="position:absolute;left:333px;top:179px;width:69px;height:28px;z-index:21;">
+<input type="text" id="measurementUncertainity" style="position:absolute;left:202px;top:311px;width:200px;height:18px;line-height:18px;z-index:19;" name="measurementUncertainity" value="" placeholder="Enter percentage value">
+<input type="submit" id="Submit" name="Submit" value="Next" style="position:absolute;left:306px;top:380px;width:96px;height:25px;z-index:20;">
+<select name="year" size="1" id="year" style="position:absolute;left:333px;top:179px;width:74px;height:28px;z-index:21;">
 <option value="2010">2010</option>
 <option value="2009">2009</option>
 <option value="2008">2008</option>
@@ -271,8 +271,16 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
 <option value="1901">1901</option>
 <option value="1900">1900</option>
 </select>
-<select class="ageEvalMonth" name="ageEvalMonth" size="1" id="ageEvalMonth" style="position:absolute;left:314px;top:212px;width:88px;height:28px;z-index:22;">
+<select class="ageEvalMonth" name="ageEvalMonth" size="1" id="ageEvalMonth" style="position:absolute;left:314px;top:212px;width:92px;height:28px;z-index:22;">
 <option value="1 month(s)">1 month(s)</option>
+</select>
+<label style="position:absolute;left:9px;top:345px;width:200px;height:18px;line-height:18px;z-index:19;" for="systemCode">System Code</label>
+<select class="systemCode" name="systemCode" size="1" id="ageEvalMonth" style="position:absolute;left:202px;top:345px;width:204px;height:24px;line-height:18px;z-index:19;">
+   <% for(var i=0; i<vals.length; i++) { %>
+   <option value='<%=vals[i]["systemcode"]%>'>
+      <%= vals[i]["systemcode"] %>
+   </option>
+   <% } %>
 </select>
 </form>
 </div>

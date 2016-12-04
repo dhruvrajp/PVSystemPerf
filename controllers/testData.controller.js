@@ -9,7 +9,16 @@ var sess;
 exports.renderHome=function(req,res){
     sess=req.session;
     if(sess.email) {
-        res.render("testDataMainPage");
+        var query = "SELECT systemcode FROM solarsystems";
+        sequelize.query(query, {type : sequelize.QueryTypes.SELECT}
+        ).then(function(val){
+            //var x;
+            //for (x in val.keys())
+            //console.log("Inside for");
+            var myobj ='{"vals":'+JSON.stringify(val)+'}';
+            console.log(myobj);
+            res.render('testDataMainPage',JSON.parse(myobj));
+        });
     }else{
         res.render("loginRegPage");
     }
@@ -48,7 +57,7 @@ exports.renderVisualFile=function(req,res){
     sess=req.session;
     console.log(req.session.email);
     if(sess.email) {
-        res.render("testDataOCSC&Efficiency");
+        res.render("testDataVisualFileUpload");
     }else{
         res.render("loginRegPage");
     }
@@ -80,6 +89,7 @@ exports.processForm = function(req,res){
         var numOfModules = req.body.numOfModules;
         var measurementUncertainty = req.body.measurementUncertainity;
         var modulesTested = req.body.modulesTested;
+        var systemCode=req.body.systemCode;
 
         var testMonthYear = month + " " + year;
         var ageEvaluation=ageEvalYear.toString().replace(" Year(s)","") + "." + ageEvalMonth.toString().replace(" month(s)","");
@@ -99,7 +109,7 @@ exports.processForm = function(req,res){
         }).then(function (val) {
             testAgencyID = (JSON.stringify(val[0]).split(":"))[1].replace('}','');
             console.log("Inserting Test Data");
-            var query = "insert into testdata (TestTypeID,TestTypeName,TesttingAgencyID,ClimateType,SiteName,Model,TestMonthYear,NumberOfModulesInSystem,AgeAtEvaluation,ModulesTested,MeasurementUncertainty) values (:testTypeId,:testType,:testAgencyID,:climateType,:siteName,:model,:testMonthYear,:numOfModules,:ageEval,:modulesTested,:measurementUncertainty)";
+            var query = "insert into testdata (TestTypeID,TestTypeName,TesttingAgencyID,ClimateType,SiteName,Model,TestMonthYear,NumberOfModulesInSystem,AgeAtEvaluation,ModulesTested,MeasurementUncertainty,systemCode) values (:testTypeId,:testType,:testAgencyID,:climateType,:siteName,:model,:testMonthYear,:numOfModules,:ageEval,:modulesTested,:measurementUncertainty,:systemCode)";
             console.log(query);
             sequelize.query(query, {
             replacements: {
@@ -113,7 +123,8 @@ exports.processForm = function(req,res){
                 numOfModules: numOfModules,
                 ageEval: ageEval,
                 modulesTested: modulesTested,
-                measurementUncertainty: measurementUncertainty
+                measurementUncertainty: measurementUncertainty,
+                systemCode:systemCode
             }
             })
             .then(function (success) {
@@ -124,7 +135,7 @@ exports.processForm = function(req,res){
                         return res.redirect("/testDataOCSC&Efficiency");
                     } else {
                         req.session.testTypeId = 2;
-                        return res.redirect("/testDataVisualInspection");
+                        return res.redirect("/testDataVisual");
                     }
                 }else{
                     res.render("authError")
@@ -164,6 +175,7 @@ exports.processOCSC=function(req,res){
         var degradationImp = req.body.degradationImp;
         var degradationVmax = req.body.degradationVmax;
         var degradationPmax = req.body.degradationPmax;
+        console.log("degradationVoc" +degradationVoc);
 
         var queryCheckTestAgency = "select MAX(TestID) from testdata";
         console.log(queryCheckTestAgency)
@@ -264,4 +276,86 @@ exports.processVisual=function(req,res){
     }else{
         res.render('loginRegPage');
     }
+};
+
+exports.renderDisplayOptions=function(req,res){
+    sess = req.session;
+    if(sess.email){
+        try {
+            var query = "SELECT distinct systemcode,sitename,testmonthyear,testtypename FROM testdata";
+            sequelize.query(query, {type: sequelize.QueryTypes.SELECT}
+            ).then(function (val) {
+                //var x;
+                //for (x in val.keys())
+                //console.log("Inside for");
+                var myobj = '{"vals":' + JSON.stringify(val) + '}';
+                console.log(myobj);
+                res.render('testDataDisplay', JSON.parse(myobj));
+            });
+        }catch(err){
+            res.render("/authError");
+        }
+    }else{
+        res.render('loginRegPage');
+    }
+}
+
+exports.printResults = function(req, res){
+    /*
+     var email = req.body.username;
+     var pass = req.body.password;
+     //console.log("Inside Login User Emaol= "+ String(email) +"" + String(pass));
+
+     var query = "SELECT Email, password FROM solarsystemowners WHERE Email= :email";
+     sequelize.query(query, {replacements: {email : email} ,type : sequelize.QueryTypes.SELECT}
+     ).then(function(val){
+
+     */
+    sess = req.session;
+    if (sess.email) {
+        var systemcode = req.body.systemcode;
+        var sitename = req.body.sitename;
+        var testmonthyear = req.body.testmonthyear;
+        var testtype = req.body.testType;
+        console.log("TestType " +testtype);
+        if (testtype == "OC, SC and Efficiency") {
+        var query = "SELECT * FROM testdata INNER JOIN testtype1 " +
+            "WHERE systemcode = :systemcode and sitename = :sitename and testmonthyear=:testmonthyear";
+        sequelize.query(query, {
+                replacements: {
+                    systemcode: systemcode,
+                    sitename: sitename,
+                    testmonthyear: testmonthyear
+                }, type: sequelize.QueryTypes.SELECT
+            }
+        ).then(function (val) {
+            //var x;
+            //for (x in val.keys())
+            var myobj = '{"vals":' + JSON.stringify(val) + '}';
+            res.render('testDataDisplayResult', JSON.parse(myobj));
+
+        });
+      }else{
+        var query = "SELECT * FROM testdata INNER JOIN testtype2 " +
+            "WHERE systemcode = :systemcode and sitename = :sitename and testmonthyear=:testmonthyear";
+        sequelize.query(query, {
+                replacements: {
+                    systemcode: systemcode,
+                    sitename: sitename,
+                    testmonthyear: testmonthyear
+                }, type: sequelize.QueryTypes.SELECT
+            }
+        ).then(function (val) {
+            //var x;
+            //for (x in val.keys())
+            console.log(val);
+            var myobj = '{"vals":' + JSON.stringify(val) + '}';
+            res.render('testDataDisplayResult', JSON.parse(myobj));
+
+        });
+      }
+    }else{
+        res.render('loginRegPage');
+    }
+    //res.render('solarSystemInfoResults');
 };

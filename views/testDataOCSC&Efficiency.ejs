@@ -63,7 +63,7 @@ $(document).ready(function()
       <ul>
       </ul>
    </li>
-   <li class="SlideMenu1_Folder"><a>REIB APPLICATION</a>
+   <li class="SlideMenu1_Folder"><a href="/testDataDisplay">TEST DATA DISPLAY</a>
       <ul>
       </ul>
    </li>
@@ -115,29 +115,29 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
 <div id="wb_Form1" style="position:absolute;left:394px;top:345px;width:1061px;height:489px;z-index:34;">
 <form name="OC,_SC_and_Efficiency_Tests" method="post" action="/processOCSC" enctype="application/x-www-form-urlencoded" id="Form1">
 <label for="moduleCode" id="Label1" style="position:absolute;left:9px;top:14px;width:104px;height:18px;line-height:18px;z-index:0;">Module Code</label>
-<input type="text" id="moduleCode" style="position:absolute;left:167px;top:13px;width:190px;height:18px;line-height:18px;z-index:1;" name="moduleCode" value="" placeholder="Enter module code">
+<input type="text" id="moduleCode" style="position:absolute;left:167px;top:13px;width:190px;height:18px;line-height:18px;z-index:1;" name="moduleCode" value="" placeholder="Enter module code" required>
 <label for="measuredISC" id="Label2" style="position:absolute;left:9px;top:47px;width:104px;height:18px;line-height:18px;z-index:2;">Measured Isc</label>
-<input type="text" id="measuredISC" style="position:absolute;left:167px;top:47px;width:190px;height:18px;line-height:18px;z-index:3;" name="measuredISC" value="" placeholder="Enter value in Amperes">
+<input type="text" id="measuredISC" style="position:absolute;left:167px;top:47px;width:190px;height:18px;line-height:18px;z-index:3;" name="measuredISC" value="" placeholder="Enter value in Amperes" required>
 <label for="measuredVoc" id="Label4" style="position:absolute;left:9px;top:80px;width:104px;height:18px;line-height:18px;z-index:4;">Measured Voc</label>
-<input type="text" id="measuredVoc" style="position:absolute;left:167px;top:79px;width:190px;height:18px;line-height:18px;z-index:5;" name="measuredVoc" value="" placeholder="Enter value in Volts">
+<input type="text" id="measuredVoc" style="position:absolute;left:167px;top:79px;width:190px;height:18px;line-height:18px;z-index:5;" name="measuredVoc" value="" placeholder="Enter value in Volts" required>
 <label for="measuredIMP" id="Label5" style="position:absolute;left:9px;top:113px;width:104px;height:18px;line-height:18px;z-index:6;">Measured Imp</label>
-<input type="text" id="measuredIMP" style="position:absolute;left:167px;top:112px;width:190px;height:18px;line-height:18px;z-index:7;" name="measuredIMP" value="" placeholder="Enter value in Amperes">
+<input type="text" id="measuredIMP" style="position:absolute;left:167px;top:112px;width:190px;height:18px;line-height:18px;z-index:7;" name="measuredIMP" value="" placeholder="Enter value in Amperes" required>
 <label for="measuredVmp" id="Label6" style="position:absolute;left:9px;top:146px;width:104px;height:18px;line-height:18px;z-index:8;">Measured Vmp</label>
-<input type="text" id="measuredVmp" style="position:absolute;left:167px;top:145px;width:190px;height:18px;line-height:18px;z-index:9;" name="measuredVmp" value="" placeholder="Enter value in Volts">
+<input type="text" id="measuredVmp" style="position:absolute;left:167px;top:145px;width:190px;height:18px;line-height:18px;z-index:9;" name="measuredVmp" value="" placeholder="Enter value in Volts" required>
 <label for="measuredFF" id="Label7" style="position:absolute;left:9px;top:179px;width:104px;height:18px;line-height:18px;z-index:10;">Measured FF</label>
-<input type="text" id="measuredFF" style="position:absolute;left:167px;top:178px;width:190px;height:18px;line-height:18px;z-index:11;" name="measuredFF" value="" placeholder="Enter value of Fill Factor ">
+<input type="text" id="measuredFF" style="position:absolute;left:167px;top:178px;width:190px;height:18px;line-height:18px;z-index:11;" name="measuredFF" value="" placeholder="Enter value of Fill Factor " required>
 <label for="measuredPower" id="Label8" style="position:absolute;left:9px;top:212px;width:104px;height:18px;line-height:18px;z-index:12;">Measured Power</label>
-<input type="text" id="measuredPower" style="position:absolute;left:167px;top:211px;width:190px;height:18px;line-height:18px;z-index:13;" name="measuredPower" value="" placeholder="Enter value in Watts">
+<input type="text" id="measuredPower" style="position:absolute;left:167px;top:211px;width:190px;height:18px;line-height:18px;z-index:13;" name="measuredPower" value="" placeholder="Enter value in Watts" required>
 <label for="degradationISC" id="Label19" style="position:absolute;left:9px;top:245px;width:104px;height:18px;line-height:18px;z-index:14;">Degradation Isc</label>
-<input type="text" id="degradationISC" style="position:absolute;left:167px;top:244px;width:190px;height:18px;line-height:18px;z-index:15;" name="degradationISC" value="" placeholder="Enter value in Amperes">
+<input type="text" id="degradationISC" style="position:absolute;left:167px;top:244px;width:190px;height:18px;line-height:18px;z-index:15;" name="degradationISC" value="" placeholder="Enter value in Amperes" required>
 <label for="degradationVoc" id="Label10" style="position:absolute;left:9px;top:278px;width:104px;height:18px;line-height:18px;z-index:16;">Degradation Voc</label>
-<input type="text" id="degradationVoc" style="position:absolute;left:167px;top:277px;width:190px;height:18px;line-height:18px;z-index:17;" name="degradationVoc" value="" placeholder="Enter value in Volts">
+<input type="text" id="degradationVoc" style="position:absolute;left:167px;top:277px;width:190px;height:18px;line-height:18px;z-index:17;" name="degradationVoc" value="" placeholder="Enter value in Volts" required>
 <label for="degradationImp" id="Label11" style="position:absolute;left:9px;top:311px;width:104px;height:18px;line-height:18px;z-index:18;">Degradation Imp</label>
-<input type="text" id="degradationImp" style="position:absolute;left:167px;top:310px;width:190px;height:18px;line-height:18px;z-index:19;" name="degradationImp" value="" placeholder="Enter value in Amperes">
+<input type="text" id="degradationImp" style="position:absolute;left:167px;top:310px;width:190px;height:18px;line-height:18px;z-index:19;" name="degradationImp" value="" placeholder="Enter value in Amperes" required>
 <label for="degradationVmax" id="Label2" style="position:absolute;left:9px;top:344px;width:117px;height:18px;line-height:18px;z-index:20;">Degradation Vmax</label>
-<input type="text" id="degradationVmax" style="position:absolute;left:167px;top:343px;width:190px;height:18px;line-height:18px;z-index:21;" name="degradationVmax" value="" placeholder="Enter value in Volts">
+<input type="text" id="degradationVmax" style="position:absolute;left:167px;top:343px;width:190px;height:18px;line-height:18px;z-index:21;" name="degradationVmax" value="" placeholder="Enter value in Volts" required>
 <label for="degradationPmax" id="Label13" style="position:absolute;left:9px;top:377px;width:117px;height:18px;line-height:18px;z-index:22;">Degradation Pmax</label>
-<input type="text" id="degradationPmax" style="position:absolute;left:167px;top:376px;width:190px;height:18px;line-height:18px;z-index:23;" name="degradationPmax" value="" placeholder="Enter value in Watts">
+<input type="text" id="degradationPmax" style="position:absolute;left:167px;top:376px;width:190px;height:18px;line-height:18px;z-index:23;" name="degradationPmax" value="" placeholder="Enter value in Watts" required>
 <input type="submit" id="Button1" name="" value="Submit" style="position:absolute;left:272px;top:427px;width:96px;height:25px;z-index:24;">
 </form>
 </div>

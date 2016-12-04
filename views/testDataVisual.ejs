@@ -65,7 +65,7 @@ $(document).ready(function()
       <ul>
       </ul>
    </li>
-   <li class="SlideMenu1_Folder"><a>REIB APPLICATION</a>
+   <li class="SlideMenu1_Folder"><a href="/testDataDisplay">TEST DATA DISPLAY</a>
       <ul>
       </ul>
    </li>
@@ -115,14 +115,14 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
 <div id="wb_Form1" style="position:absolute;left:393px;top:347px;width:1062px;height:718px;z-index:47;">
 <form name="Visual_Inspection_Form" method="post" action="/processVisual" enctype="application/x-www-form-urlencoded" id="Form1">
 <label for="ModuleCode" id="Label1" style="position:absolute;left:9px;top:14px;width:207px;height:18px;line-height:18px;z-index:0;">Module Code</label>
-<input type="text" name="ModuleCode" id="ModuleCode" placeholder="ModuleCode" style="position:absolute;left:234px;top:14px;width:200px;height:18px;z-index:1;">
+<input type="text" name="ModuleCode" id="ModuleCode" placeholder="ModuleCode" style="position:absolute;left:234px;top:14px;width:200px;height:18px;z-index:1;" required>
 <label for="InterconnectBreakage" id="Label5" style="position:absolute;left:9px;top:47px;width:207px;height:18px;line-height:18px;z-index:2;">Interconnect Breakage</label>
-<select name="InterconnectBreakage" size="1" id="InterconnectBreakage" style="position:absolute;left:234px;top:47px;width:200px;height:28px;z-index:3;">
+<select name="InterconnectBreakage" size="1" id="InterconnectBreakage" style="position:absolute;left:234px;top:47px;width:200px;height:28px;z-index:3;" required>
 <option value="Yes">Yes</option>
 <option value="No">No</option>
 </select>
 <label for="HotSpots" id="Label6" style="position:absolute;left:9px;top:146px;width:207px;height:18px;line-height:18px;z-index:8;">Hot Spots</label>
-<select name="HotSpots" size="1" id="HotSpots" style="position:absolute;left:234px;top:146px;width:200px;height:28px;z-index:9;">
+<select name="HotSpots" size="1" id="HotSpots" style="position:absolute;left:234px;top:146px;width:200px;height:28px;z-index:9;" required>
 <option value="Yes">Yes</option>
 <option value="No">No</option>
 </select>
@@ -137,9 +137,9 @@ cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
 <option value="No">No</option>
 </select>
 <label for="PmDrop" id="Label7" style="position:absolute;left:9px;top:179px;width:104px;height:18px;line-height:18px;z-index:10;">PmDrop</label>
-<input type="text" id="PmDrop" style="position:absolute;left:234px;top:178px;width:200px;height:18px;line-height:18px;z-index:11;" name="PmDrop" value="" placeholder="PmDrop">
+<input type="text" id="PmDrop" style="position:absolute;left:234px;top:178px;width:200px;height:18px;line-height:18px;z-index:11;" name="PmDrop" value="" placeholder="PmDrop" required>
 <label for="RsRso" id="Label8" style="position:absolute;left:9px;top:212px;width:104px;height:18px;line-height:18px;z-index:12;">RsRso</label>
-<input type="text" id="RsRso" style="position:absolute;left:234px;top:211px;width:200px;height:18px;line-height:18px;z-index:13;" name="RsRso" value="" placeholder="RsRso">
+<input type="text" id="RsRso" style="position:absolute;left:234px;top:211px;width:200px;height:18px;line-height:18px;z-index:13;" name="RsRso" value="" placeholder="RsRso" required>
 <label for="CellDiscoloration" id="Label9" style="position:absolute;left:9px;top:245px;width:207px;height:18px;line-height:18px;z-index:14;">Cell Discoloration</label>
 <select name="CellDiscoloration" size="1" id="CellDiscoloration" style="position:absolute;left:234px;top:245px;width:200px;height:28px;z-index:15;">
 <option value="Yes">Yes</option>

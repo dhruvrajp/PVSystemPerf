@@ -94,7 +94,7 @@
 <div id="wb_Form1" style="position:absolute;left:680px;top:215px;width:1056px;height:543px;z-index:28;">
     <form name="Form1" method="post" action="/processCertiAttemptForm" enctype="application/x-www-form-urlencoded" id="Form1">
         <label for="" id="Label4" style="position:absolute;left:20px;top:9px;width:197px;height:29px;line-height:29px;z-index:0;">Attempt ID</label>
-        <input type="text" id="attemptid" style="position:absolute;left:20px;top:44px;width:305px;height:18px;line-height:18px;z-index:1;" name="attemptid" value="">
+        <input type="text" id="attemptid" style="position:absolute;left:20px;top:44px;width:305px;height:18px;line-height:18px;z-index:1;" name="attemptid" value="" required>
         <label for="" id="Label5" style="position:absolute;left:20px;top:74px;width:147px;height:29px;line-height:29px;z-index:2;">System ID</label>
         <select name="systemid" size="1" id="Combobox1" style="position:absolute;left:21px;top:111px;width:96px;height:28px;z-index:3;">
             <option value="1">System 1</option>
@@ -278,7 +278,7 @@
         <input type="radio" id="RadioButton2" name="attemptstatus" value="failed" checked style="position:absolute;left:134px;top:332px;z-index:16;">
         <label for="" id="Label10" style="position:absolute;left:161px;top:324px;width:93px;height:29px;line-height:29px;z-index:17;">Failed</label>
         <label for="" id="Label11" style="position:absolute;left:20px;top:354px;width:99px;height:33px;line-height:33px;z-index:18;">Comments</label>
-        <textarea name="comments" id="TextArea1" style="position:absolute;left:20px;top:395px;width:469px;height:53px;z-index:19;" rows="2" cols="75"></textarea>
+        <textarea name="comments" id="TextArea1" style="position:absolute;left:20px;top:395px;width:469px;height:53px;z-index:19;" rows="2" cols="75" required></textarea>
     </form>
     <div id="wb_Text2" style="position:absolute;left:106px;top:1px;width:250px;height:16px;z-index:29;text-align:left;">
         <span style="color:#000000;font-family:Arial;font-size:13px;">All Fields are Mandatory</span>

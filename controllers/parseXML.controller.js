@@ -65,7 +65,7 @@ exports.parseTestFile=function(req,res){
                 parser.parseString(data, function (err, result) {
                     if(result) {
                         try {
-                            var testTypeID = result['form']['testtypeid'].toString();
+                            testTypeId = result['form']['testtypeid'].toString();
                             var testType = result['form']['testtypename'].toString();
                             var testAgencyName = result['form']['testingagencyname'].toString();
                             var climateType = result['form']['climatetype'].toString();
@@ -76,8 +76,8 @@ exports.parseTestFile=function(req,res){
                             var numOfModules = result['form']['numberofmodulesinsystem'].toString();
                             var measurementUncertainty = result['form']['measurementuncertainty'].toString();
                             var modulesTested = result['form']['modulestested'].toString();
+                            var systemCode = result['form']['systemCode'].toString();
 
-                            testTypeId=testTypeID;
                         }catch(err){
                             res.render("XMLFileError",{ error :err.toString()});
                         }
@@ -90,7 +90,7 @@ exports.parseTestFile=function(req,res){
                         }).then(function (val) {
                             testAgencyID = (JSON.stringify(val[0]).split(":"))[1].replace('}','');
                             console.log("Inserting Test Data");
-                            var query = "insert into testdata (TestTypeID,TestTypeName,TesttingAgencyID,ClimateType,SiteName,Model,TestMonthYear,NumberOfModulesInSystem,AgeAtEvaluation,ModulesTested,MeasurementUncertainty) values (:testTypeId,:testType,:testAgencyID,:climateType,:siteName,:model,:testMonthYear,:numOfModules,:ageEval,:modulesTested,:measurementUncertainty)";
+                            var query = "insert into testdata (TestTypeID,TestTypeName,TesttingAgencyID,ClimateType,SiteName,Model,TestMonthYear,NumberOfModulesInSystem,AgeAtEvaluation,ModulesTested,MeasurementUncertainty,systemCode) values (:testTypeId,:testType,:testAgencyID,:climateType,:siteName,:model,:testMonthYear,:numOfModules,:ageEval,:modulesTested,:measurementUncertainty,:systemCode)";
                             console.log(query);
                             sequelize.query(query, {
                                 replacements: {
@@ -104,7 +104,8 @@ exports.parseTestFile=function(req,res){
                                     numOfModules: numOfModules,
                                     ageEval: ageEval,
                                     modulesTested: modulesTested,
-                                    measurementUncertainty: measurementUncertainty
+                                    measurementUncertainty: measurementUncertainty,
+                                    systemCode: systemCode
                                 }
                             })
                                 .then(function (success) {

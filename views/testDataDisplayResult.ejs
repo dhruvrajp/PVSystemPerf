@@ -8,27 +8,6 @@
     <link href="/stylesheets/#IFT540-TP-UI.css" rel="stylesheet">
     <link href="/stylesheets/HomePage.css" rel="stylesheet">
     <script src="/javascripts/jquery-1.12.4.min.js"></script>
-    <script src="/javascripts/wb.newsviewer.min.js"></script>
-    <script>
-        $(document).ready(function()
-        {
-            $(".SlideMenu1_Folder a").click(function()
-            {
-                if ($(this).parent().find('ul').is(':hidden'))
-                {
-                    $(this).parent().find('ul').show();
-                }
-                else
-                {
-                    $(this).parent().find('ul').hide();
-                }
-            });
-            var NewsFeedTicker1_Data = new Array();
-            NewsFeedTicker1_Data[0] = ["http://feeds.reuters.com/reuters/businessNews", "Business News", "Sun, 13 Nov 2016 00:45:01 GMT", "Business News click here"];
-            NewsFeedTicker1_Data[1] = ["http://feeds.reuters.com/reuters/scienceNews", "Science", "Sun, 13 Nov 2016 00:45:36 GMT", "Science related topics click here"];
-            $("#NewsFeedTicker1").newsviewer({ mode: 'default', sortOrder: 0, dataSource: 'local', param: NewsFeedTicker1_Data, target: '_self', dateFormat: 'mm/dd/yy', maxItems: 10});
-        });
-    </script>
 </head>
 <body>
 <a href="http://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb11.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:967px;border-width:0;z-index:250"></a>
@@ -61,8 +40,6 @@
         <li class="SlideMenu1_Folder"><a href="/solarSystemInfo">PERFORMANCE ANALYSIS</a>
         </li>
         <li class="SlideMenu1_Folder"><a href="/failureModes">FAILURE MODES</a>
-            <ul>
-            </ul>
         </li>
         <li class="SlideMenu1_Folder"><a href="/addCerti">CERTIFICATION APPLICATION</a>
         </li>
@@ -76,15 +53,16 @@
         </li>
     </ul>
 </div>
-<div id="NewsFeedTicker1" style="overflow:hidden;position:absolute;left:1193px;top:213px;width:237px;height:552px;z-index:3;">
-</div>
 <div id="wb_Image1" style="position:absolute;left:62px;top:36px;width:129px;height:117px;z-index:4;">
     <img src="images/New_Icon.png" id="Image1" alt=""></div>
 <div id="wb_Line1" style="position:absolute;left:-4px;top:168px;width:1457px;height:3px;z-index:5;">
     <img src="images/img0004.png" id="Line1" alt=""></div>
 <div id="wb_MenuBar1" style="position:absolute;left:87px;top:178px;width:252px;height:35px;z-index:1006;">
     <div id="MenuBar1">
-
+        <ul style="display:none;">
+            <li><span></span><span><a href="#">Settings</a></span></li>
+            <li><span></span><span><a href="/logout">Logout</a></span></li>
+        </ul>
     </div>
     <script>
         var cmMenuBar1 =
@@ -111,10 +89,23 @@
         cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
     </script>
 </div>
-<div id="wb_Form2" style="position:absolute;left:339px;top:213px;width:852px;height:568px;z-index:10;">
-    <h2>Invalid username password.</h2>
-    <p><a href="loginRegPage">Click Here</a> to go back to the login page.</p>
+<div id="wb_Form2" style="position: absolute;left:450px;top:213px;width:900px;max-height:568px;z-index:10;overflow-y:scroll">
+    <h2 style="margin-left:40px;">Requested Test Data</h2>
+        <table style="width:45%;border:1px solid black;">
+        <% for(var key in vals[0]) { %>
+         <tr style = "border:1px solid black">
+             <% if (key!=null&&vals[0][key]!="") { %>
+             <td style = "border:1px solid black;padding: 8px; text-align: center;"><%= key  %></td>
+             <td style = "border:1px solid black; padding: 8px; text-align: center;"><%= vals[0][key] %></td>
+             <%}%>
+         </tr>
+        <% } %>
+        </table>
+    <br>
+    <br>
+    <br>
 </div>
+
 <div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:797px;width:100%;height:201px;z-index:7;">
     <div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;">
         <p>Bankable & InterOperable PV</p>
@@ -127,3 +118,34 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

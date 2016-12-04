@@ -49,7 +49,6 @@ exports.renderHome = function(req, res) {
             var myobj ='{"vals":'+JSON.stringify(val)+'}';
             console.log(myobj);
             res.render('solarSystemInfo',JSON.parse(myobj));
-
         });
     }else{
         res.render('loginRegPage');
