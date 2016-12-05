@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Add Monitoring Data</title>
+<meta name="generator" content="WYSIWYG Web Builder 11 Trial Version - http://www.wysiwygwebbuilder.com">
+<script src="/javascripts/jscookmenu.min.js"></script>
+<link href="/stylesheets/wb.validation.css" rel="stylesheet">
+<link href="/stylesheets/SolarDevilsPerf.css" rel="stylesheet">
+<link href="/stylesheets/index.css" rel="stylesheet">
+<script src="/javascripts/jquery-1.12.4.min.js"></script>
+<script src="/javascripts/wb.newsviewer.min.js"></script>
+<script src="/javascripts/wb.validation.min.js"></script>
+<script>
+function ValidatePerformanceData(theForm)
+{
+   var regexp;
+   if (theForm.Editbox1.value == "")
+   {
+      alert("Enter SystemID");
+      theForm.Editbox1.focus();
+      return false;
+   }
+   regexp = /^[-+]?\d*\.?\d*$/;
+   if (!regexp.test(theForm.Editbox3.value))
+   {
+      alert("Enter end year");
+      theForm.Editbox3.focus();
+      return false;
+   }
+   if (theForm.Editbox3.value == "")
+   {
+      alert("Enter end year");
+      theForm.Editbox3.focus();
+      return false;
+   }
+   if (theForm.Editbox3.value.length < 4)
+   {
+      alert("Enter end year");
+      theForm.Editbox3.focus();
+      return false;
+   }
+   if (theForm.Editbox3.value.length > 4)
+   {
+      alert("Enter end year");
+      theForm.Editbox3.focus();
+      return false;
+   }
+   if (theForm.Editbox3.value != "" && !(theForm.Editbox3.value >= 1800 && theForm.Editbox3.value <= 5000))
+   {
+      alert("Enter end year");
+      theForm.Editbox3.focus();
+      return false;
+   }
+   return true;
+}
+</script>
+<script>
+$(document).ready(function()
+{
+   $(".SlideMenu1_Folder a").click(function()
+   {
+      if ($(this).parent().find('ul').is(':hidden'))
+      {
+         $(this).parent().find('ul').show();
+      }
+      else
+      {
+         $(this).parent().find('ul').hide();
+      }
+   });
+   $("#Form2").submit(function(event)
+   {
+      var isValid = $.validate.form(this);
+      return isValid;
+   });
+   $("#Editbox2").validate(
+   {
+      required: true,
+      type: 'number',
+      expr_min: '>=',
+      expr_max: '<=',
+      value_min: '1800',
+      value_max: '5000',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: 'Please Enter Start Year'
+   });
+   $("#Editbox4").validate(
+   {
+      required: false,
+      type: 'number',
+      expr_min: '',
+      expr_max: '',
+      value_min: '',
+      value_max: '',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: 'MeasuredEnergyAvailability'
+   });
+   $("#Editbox5").validate(
+   {
+      required: false,
+      type: 'number',
+      expr_min: '',
+      expr_max: '',
+      value_min: '',
+      value_max: '',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: ''
+   });
+   $("#Editbox6").validate(
+   {
+      required: false,
+      type: 'number',
+      expr_min: '>=',
+      expr_max: '',
+      value_min: '0',
+      value_max: '',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: ''
+   });
+   $("#Editbox7").validate(
+   {
+      required: false,
+      type: 'number',
+      expr_min: '',
+      expr_max: '',
+      value_min: '',
+      value_max: '',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: ''
+   });
+   $("#Editbox8").validate(
+   {
+      required: true,
+      type: 'number',
+      expr_min: '>=',
+      expr_max: '',
+      value_min: '0',
+      value_max: '',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: ''
+   });
+   $("#Editbox9").validate(
+   {
+      required: false,
+      type: 'number',
+      expr_min: '',
+      expr_max: '',
+      value_min: '',
+      value_max: '',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: ''
+   });
+   $("#Editbox10").validate(
+   {
+      required: false,
+      type: 'number',
+      expr_min: '',
+      expr_max: '',
+      value_min: '',
+      value_max: '',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: ''
+   });
+   $("#Editbox11").validate(
+   {
+      required: false,
+      type: 'number',
+      expr_min: '',
+      expr_max: '',
+      value_min: '',
+      value_max: '',
+      color_text: '#000000',
+      color_hint: '#00FF00',
+      color_error: '#FF0000',
+      color_border: '#808080',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'topleft',
+      offsetx: 0,
+      offsety: 0,
+      effect: 'none',
+      error_text: ''
+   });
+});
+</script>
+</head>
+<body>
+<a href="http://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb11.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:967px;border-width:0;z-index:250"></a>
+<div id="wb_CssMenu2" style="position:absolute;left:371px;top:85px;width:1072px;height:35px;text-align:right;z-index:32;">
+<ul>
+<li class="firstmain"><a href="#" target="_self">Home</a>
+</li>
+<li><a href="#" target="_self">PV&nbsp;Rating</a>
+</li>
+<li><a href="#" target="_self">PV&nbsp;System&nbsp;Performance</a>
+</li>
+<li><a href="#" target="_self">CHICO</a>
+</li>
+</ul>
+</div>
+<div id="SlideMenu1" style="position:absolute;left:32px;top:174px;width:307px;height:650px;z-index:33;">
+   <ul>
+      <li><a>ADD PV SYSTEM</a>
+         <ul>
+            <li><a href="/addPvForm">Form Fill</a></li>
+            <li><a href="/addPvFile">Import from XML</a></li>
+         </ul>
+      </li>
+      <li class="SlideMenu1_Folder"><a href="/testDataMainPage">TEST DATA REPORTING</a>
+         <ul>
+            <li><a href="/addTestFile">Form Fill</a></li>
+            <li><a href="/testDataMainPage">Import from XML</a></li>
+         </ul>
+      </li>
+      <li class="SlideMenu1_Folder"><a href="/solarSystemInfo">PERFORMANCE ANALYSIS</a>
+      </li>
+      <li class="SlideMenu1_Folder"><a href="/failureModes">FAILURE MODES</a>
+      </li>
+      <li class="SlideMenu1_Folder"><a href="/addCerti">CERTIFICATION APPLICATION</a>
+         <ul>
+         </ul>
+      </li>
+      <li class="SlideMenu1_Folder"><a href="/testDataDisplay">TEST DATA DISPLAY</a>
+         <ul>
+         </ul>
+      </li>
+      <li class="SlideMenu1_Folder"><a href="/monitoringDisplay">MONITORING DATA</a>
+         <ul>
+         </ul>
+      </li>
+   </ul>
+</div>
+<div id="wb_Image1" style="position:absolute;left:75px;top:25px;width:129px;height:118px;z-index:35;">
+<img src="images/New_Icon.png" id="Image1" alt=""></div>
+<div id="wb_Line1" style="position:absolute;left:-4px;top:168px;width:1457px;height:3px;z-index:36;">
+<img src="images/img0001.png" id="Line1" alt=""></div>
+<div id="wb_MenuBar1" style="position:absolute;left:32px;top:175px;width:252px;height:35px;z-index:1009;">
+   <div id="MenuBar1">
+      <ul style="display:none;">
+         <li><span></span><span><a href="#">Settings</a></span></li>
+         <li><span></span><span><a href="/logout">Logout</a></span></li>
+      </ul>
+   </div>
+</div>
+<script>
+var cmMenuBar1 =
+{
+   mainFolderLeft: '',
+   mainFolderRight: '',
+   mainItemLeft: '',
+   mainItemRight: '',
+   folderLeft: '',
+   folderRight: '',
+   itemLeft: '',
+   itemRight: '',
+   mainSpacing: 0,
+   subSpacing: 0,
+   delay: 100,
+   offsetHMainAdjust: [0, 0],
+   offsetSubAdjust: [0, 0]
+};
+var cmMenuBar1HSplit = [_cmNoClick, '<td class="MenuBar1MenuSplitLeft"><div></div></td>' +
+                                       '<td class="MenuBar1MenuSplitText"><div></div></td>' +
+                                       '<td class="MenuBar1MenuSplitRight"><div></div></td>'];
+var cmMenuBar1MainVSplit = [_cmNoClick, '<div><table width="15" cellspacing="0"><tr><td class="MenuBar1HorizontalSplit">|</td></tr></table></div>'];
+var cmMenuBar1MainHSplit = [_cmNoClick, '<td colspan="3" class="MenuBar1MainSplitText"><div></div></td>'];
+cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
+</script>
+</div>
+<div id="wb_Form2" style="position:absolute;left:339px;top:212px;width:852px;height:573px;z-index:38;">
+<form name="PerformanceData" method="post" action="/processMonitoringData" enctype="application/x-www-form-urlencoded" id="Form2" onsubmit="return ValidatePerformanceData(this)">
+<label for="monthYear" id="Label3" style="position:absolute;left:21px;top:95px;width:60px;height:18px;line-height:18px;z-index:0;">Month and Year</label>
+<label for="systemID" id="Label1" style="position:absolute;left:8px;top:44px;width:72px;height:18px;line-height:18px;z-index:0;">System ID</label>
+   <select name="systemID" id="systemID" style="position:absolute;left:145px;top:44px;width:154px;height:18px;line-height:18px;z-index:2;">
+      <% for(var i=0; i<vals.length; i++) { %>
+      <option value='<%=vals[i]["systemcode"]%>'>
+         <%= vals[i]["systemcode"] %>
+      </option>
+      <% } %>
+   </select>
+<input type="text" id="monthYear" style="position:absolute;left:145px;top:96px;width:154px;height:18px;line-height:18px;z-index:3;" name="monthYear" value="" placeholder="mmm yyyy">
+<input type="number" id="actualPower" style="position:absolute;left:145px;top:147px;width:154px;height:18px;line-height:18px;z-index:4;" name="actualPower" value="">
+<label for="actualPower" id="Label2" style="position:absolute;left:21px;top:147px;width:60px;height:20px;line-height:20px;z-index:5;">Actual Power</label>
+<input type="number" id="predictedPower" style="position:absolute;left:145px;top:206px;width:154px;height:18px;line-height:18px;z-index:6;" name="predictedPower" value="" title="MeasuredEnergyAvailability" placeholder="0">
+<label for="predictedPower" id="predictedPower" style="position:absolute;left:21px;top:207px;width:60px;height:19px;line-height:19px;z-index:7;" title="MeasuredEnergyAvailability">Predicted Power</label>
+<input type="submit" id="Button1" name="Submit" value="Submit" style="position:absolute;left:145px;top:454px;width:96px;height:25px;z-index:28;">
+</form>
+</div>
+<div id="wb_Text1" style="position:absolute;left:619px;top:180px;width:250px;height:24px;text-align:center;z-index:39;">
+<span style="color:#FF0000;font-family:Arial;font-size:20px;"><strong>Performance Data</strong></span></div>
+<div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:797px;width:100%;height:201px;z-index:41;"><div id="PageFooter1" style="position:absolute;overflow:hidden;text-align:left;">
+<p>Bankable & InterOperable PV</p>
+<p>701 E Williams Field Rd,
+Mesa,Arizona 85212</p>
+<p><a href="www.asu.edu">ASU Website</a>
+<label align ="right">&copy; All Rights Reserved</label></p>
+<p><a href='#'>Site Map</a> | <a href='#'>Terms and Conditions</a> |<a href='#'>Privacy Policy</a> |<a href='#'>About Us</a></p>
+</div>">
+</div>
+</body>
+</html>

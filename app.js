@@ -44,6 +44,7 @@ require(path.join(__dirname+'/routes/addCertiForm.js'))(app);
 require(path.join(__dirname+'/routes/solarSystemInfoResults.js'))(app);
 require(path.join(__dirname+'/routes/testDataRoutes.js'))(app);
 require(path.join(__dirname+'/routes/failureModesResults.js'))(app);
+require(path.join(__dirname+'/routes/monitoringData.js'))(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
