@@ -25,15 +25,6 @@ $(document).ready(function()
          $(this).parent().find('ul').hide();
       }
    });
-   var NewsFeedTicker1_Data = new Array();
-   NewsFeedTicker1_Data[0] = ["http://feeds.reuters.com/reuters/businessNews", "Business News", "Sun, 13 Nov 2016 00:45:01 GMT", "Business News click here"];
-   NewsFeedTicker1_Data[1] = ["http://feeds.reuters.com/reuters/scienceNews", "Science", "Sun, 13 Nov 2016 00:45:36 GMT", "Science related topics click here"];
-   $("#NewsFeedTicker1").newsviewer({ mode: 'default', sortOrder: 0, dataSource: 'local', param: NewsFeedTicker1_Data, target: '_self', dateFormat: 'mm/dd/yy', maxItems: 10});
-   $("#Form2").submit(function(event)
-   {
-      var isValid = $.validate.form(this);
-      return isValid;
-   });
   });
 </script>
 </head>
@@ -87,8 +78,6 @@ $(document).ready(function()
    </li>
 </ul>
 </div>
-<div id="NewsFeedTicker1" style="overflow:hidden;position:absolute;left:1193px;top:213px;width:237px;height:552px;z-index:6;">
-</div>
 <div id="wb_Image1" style="position:absolute;left:75px;top:25px;width:129px;height:118px;z-index:7;">
 <img src="images/New_Icon.png" id="Image1" alt=""></div>
 <div id="wb_Line1" style="position:absolute;left:-4px;top:168px;width:1457px;height:3px;z-index:8;">
@@ -96,8 +85,8 @@ $(document).ready(function()
 <div id="wb_MenuBar1" style="position:absolute;left:32px;top:175px;width:252px;height:35px;z-index:1009;">
    <div id="MenuBar1">
       <ul style="display:none;">
-         <li><span></span><span><a href="#">Settings</a></span></li>
-         <li><span></span><span><a href="/logout">Logout</a></span></li>
+         <li><span></span><span><a href="#"><img src="images/settings.png" height="23" width="35"></a></span></li>
+         <li><span></span><span><a href="/logout"><img src="images/logout.png" height="20" width="25"></a></span></li>
       </ul>
    </div>
 </div>
