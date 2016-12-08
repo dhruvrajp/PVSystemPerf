@@ -92,10 +92,11 @@
         cmDrawFromText('MenuBar1', 'hbr', cmMenuBar1, 'MenuBar1');
     </script>
 </div>
-<div id="wb_Form2" style="position:absolute;left:850px;top:300px;width:852px;height:568px;z-index:10;">
-    <h2 style="margin-left:-45px">Select the Solar System</h2>
+<div id="wb_Form2" style="position:absolute;left:450px;top:300px;width:852px;height:568px;z-index:10;">
+    <h2 style="margin-left:-10px">Select SolarSystem</h2>
         <form method="post" action="/solarSystemInfoResults" enctype="application/x-www-form-urlencoded">
-        <select name="systemcode">
+        <label> Single System </label>
+            <select name="systemcode">
             <% for(var i=0; i<vals.length; i++) { %>
             <option value='<%=vals[i]["systemcode"]%>'>
                 <%= vals[i]["systemcode"] %>
@@ -104,8 +105,9 @@
         </select>
         <button type="submit">Go</button>
         </form>
-    <label> Or Compare </label>
+    <br>
     <form method="post" action="/solarSystemCompareResults" enctype="application/x-www-form-urlencoded">
+        <label for="systemcode1"> Compare Systems </label>
         <select name="systemcode1">
             <% for(var i=0; i<vals.length; i++) { %>
             <option value='<%=vals[i]["systemcode"]%>'>

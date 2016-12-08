@@ -53,7 +53,20 @@ exports.printResults = function(req, res){
 
         });
         */
-        res.render('failureModesResult');
+
+        var exec = require('child_process').exec;
+        var cmd = 'C:\\Users\\saura\\Downloads\\WinPython-64bit-3.4.4.4Qt5\\python-3.4.4.amd64\\python.exe "C:\\Users\\saura\\Documents\\Sem 3\\IFT 540\\Project\\Applied Project\\main.py"';
+
+        exec(cmd, function(error, stdout, stderr) {
+            // command output is in stdout
+            console.log(stdout);
+            console.log(stderr);
+            console.log(error);
+         //   var myobj ='{"vals":'+JSON.stringify(stdout)+'}';
+            var myobj ='{"vals":'+stdout+'}';
+            res.render('failureModesResult', JSON.parse(myobj));
+        });
+
     }else{
         res.render('loginRegPage');
     }

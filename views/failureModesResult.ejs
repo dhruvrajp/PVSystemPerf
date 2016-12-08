@@ -1,5 +1,5 @@
 <html>
-We plot the graph here.
+RPN vs Failure Modes
 <!-- Styles -->
 <style>
     #chartdiv {
@@ -21,46 +21,7 @@ We plot the graph here.
     var chart = AmCharts.makeChart( "chartdiv", {
         "type": "serial",
         "theme": "light",
-        "dataProvider": [ {
-            "country": "USA",
-            "visits": 25
-        }, {
-            "country": "China",
-            "visits": 1882
-        }, {
-            "country": "Japan",
-            "visits": 1809
-        }, {
-            "country": "Germany",
-            "visits": 1322
-        }, {
-            "country": "UK",
-            "visits": 1122
-        }, {
-            "country": "France",
-            "visits": 1114
-        }, {
-            "country": "India",
-            "visits": 984
-        }, {
-            "country": "Spain",
-            "visits": 711
-        }, {
-            "country": "Netherlands",
-            "visits": 665
-        }, {
-            "country": "Russia",
-            "visits": 580
-        }, {
-            "country": "South Korea",
-            "visits": 443
-        }, {
-            "country": "Canada",
-            "visits": 441
-        }, {
-            "country": "Brazil",
-            "visits": 395
-        } ],
+        "dataProvider": <%- JSON.stringify(vals) %>,
         "valueAxes": [ {
             "gridColor": "#FFFFFF",
             "gridAlpha": 0.2,
@@ -73,14 +34,14 @@ We plot the graph here.
             "fillAlphas": 0.8,
             "lineAlpha": 0.2,
             "type": "column",
-            "valueField": "visits"
+            "valueField": "rpn"
         } ],
         "chartCursor": {
             "categoryBalloonEnabled": false,
             "cursorAlpha": 0,
             "zoomable": false
         },
-        "categoryField": "country",
+        "categoryField": "defect",
         "categoryAxis": {
             "gridPosition": "start",
             "gridAlpha": 0,
@@ -96,4 +57,7 @@ We plot the graph here.
 
 <!-- HTML -->
 <div id="chartdiv"></div>
+<div id="ImgLink">
+    <a href="http://localhost:3000/images/EntropyRandomBestFinal.PNG">Check out the Decision Tree!</a>
+</div>
 </html>
